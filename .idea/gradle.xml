@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="distributionType" value="WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/FilesAndJson/CSVFiles" />
+            <option value="$PROJECT_DIR$/FilesAndJson/JSONFiles" />
+            <option value="$PROJECT_DIR$/FilesAndJson/REST_APIs" />
+            <option value="$PROJECT_DIR$/GenericsAndCollections/Collections1" />
+            <option value="$PROJECT_DIR$/GenericsAndCollections/Collections2" />
+            <option value="$PROJECT_DIR$/GenericsAndCollections/Generics" />
+            <option value="$PROJECT_DIR$/InnerClassesAndLambdas/Calculator" />
+            <option value="$PROJECT_DIR$/InnerClassesAndLambdas/PersonsAndEmployees1" />
+            <option value="$PROJECT_DIR$/InnerClassesAndLambdas/Resume1" />
+            <option value="$PROJECT_DIR$/InnerClassesAndLambdas/Resume2" />
+            <option value="$PROJECT_DIR$/InnerClassesAndLambdas/Resume3" />
+            <option value="$PROJECT_DIR$/OOP Review/Inheritance" />
+            <option value="$PROJECT_DIR$/OOP Review/Polymorphism" />
+            <option value="$PROJECT_DIR$/ThreadsAndConcurrency/RacingCars" />
+            <option value="$PROJECT_DIR$/ThreadsAndConcurrency/RacingCars2" />
+            <option value="$PROJECT_DIR$/ThreadsAndConcurrency/WebPageEditor" />
+            <option value="$PROJECT_DIR$/util" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

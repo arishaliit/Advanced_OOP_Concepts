@@ -1,0 +1,30 @@
+<html>
+<h1>A Car Race.</h1>
+<p>This task is a slight modification of the previous task.
+    You will use <code>Executors</code>.</p>
+
+
+<h3>Car</h3>
+<p>
+    This class is exactly the same as the <code>Car</code> in Task 1.
+</p>
+
+<h3>Racer</h3>
+<p>This has exactly the same implementation as the <code>Racer</code> in task 1.
+</p>
+
+<h3>Task</h3>
+<ul>
+    <li>You need to declare a static member variable called <code>service</code> of type <code>ExecutorService</code></li>
+    <li>In <code>main</code>, set <code>racer1</code> and <code>racer2</code> to be <code>Racer</code> objects with each <code>Car</code> object</li>
+    <li>
+        You also need to create and implement the <code>initExecutorService</code>. This method should
+        initialize <code>service</code> creating a new <code>FixedThreadPool</code> with a minimum of 3 threads.
+    </li>
+    <li>In <code>main</code>, submit both Runnables to the <code>service</code> and then request
+        a shutdown of the service. <div class="hint">
+            Requesting a shutdown will finish executing the threads in the pool and then stop the pool and finish the program.
+        </div>
+    </li>
+</ul>
+</html>

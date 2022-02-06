@@ -1,0 +1,16 @@
+title: Advanced OOP Concepts
+language: English
+summary: |-
+  Java course.
+  Created: May 19, 2021, 11:00:09 AM.
+programming_language: Java
+content:
+- OOP Review
+- FilesAndJson
+- GenericsAndCollections
+- ThreadsAndConcurrency
+- InnerClassesAndLambdas
+mode: Study
+vendor:
+  name: Fdiacobe
+solutions_hidden: true

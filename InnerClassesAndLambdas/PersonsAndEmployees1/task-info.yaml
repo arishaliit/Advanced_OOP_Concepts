@@ -1,0 +1,279 @@
+type: edu
+files:
+- name: src/Task.java
+  visible: true
+  text: |-
+    import java.util.ArrayList;
+    import java.util.List;
+
+    public class Task {
+        public static void main(String[] args){
+            Person p1 = new Person("John Doe","2001-05-23");
+            Person p2 = new Person("Kate Park","2000-04-28");
+            Person p3 = new Person("Kim Tracy","1998-11-04");
+            Person p4 = new Person("Stacy Marks","2002-08-15");
+            p1.setPosition("Associate",45000);
+            p2.setPosition("Senior Associate", 75000);
+            p3.setPosition("VP",120000);
+            p4.setPosition("VP", 123000);
+
+            List<Person> employees = new ArrayList<>();
+            employees.add(p1);
+            employees.add(p2);
+            employees.add(p3);
+            employees.add(p4);
+
+            for(Person p : employees){
+                System.out.println(p);
+            }
+        }
+    }
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Modifier;
+    import java.time.LocalDate;
+    import java.time.Period;
+    import java.util.ArrayList;
+    import java.util.List;
+
+    public class Tests {
+      @Test
+      public void testPosition() {
+        Person p1 = new Person("John Doe","2001-05-23");
+        p1.setPosition("Associate",45000);
+        String p = ""+p1.getPosition();
+        Assert.assertTrue("Your position is not saving  the title as passed in setPosition.",p.contains("Associate"));
+        Assert.assertTrue("Your position is not saving the salary as it should, or you overriding of the toString() method is not printing it.",p.contains("45000")||p.contains("45,000"));
+        Class[] inners = Person.class.getDeclaredClasses();
+        Assert.assertEquals("Is your inner class named Position","Person$Position",inners[0].getName());
+        Assert.assertEquals("Is your inner class private?",Modifier.PRIVATE,inners[0].getModifiers());
+      }
+
+      @Test
+      public void testPerson(){
+        int age = -1*Period.between(LocalDate.now(),(LocalDate.parse("2001-05-23"))).getYears();
+        Person p1 = new Person("John Doe","2001-05-23");
+        p1.setPosition("Associate",45000);
+        Assert.assertEquals("You may not be parsing the date correctly in the Person constructor.",age,p1.getAge());
+        Assert.assertTrue("Is your toString() correct?",p1.toString().contains("John Doe") && p1.toString().contains(""+age)&& p1.toString().contains("Associate"));
+      }
+    }
+  learner_created: false
+- name: src/Person.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 97
+    placeholder_text: |-
+      /* TODO */
+      Import the java.time.LocalDate and java.time.Period classes.
+      You will need them later.
+    initial_state:
+      length: 97
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      import java.time.LocalDate;
+      import java.time.Period;
+  - offset: 99
+    length: 28
+    placeholder_text: |-
+      /* TODO */
+      Declare the class
+    initial_state:
+      length: 28
+      offset: 99
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: public class Person {
+  - offset: 132
+    length: 134
+    placeholder_text: |-
+      /* TODO */
+      Create two private member variables to hold the name and the birthDate of the employee. The birthdate has to be a LocalDate
+    initial_state:
+      length: 134
+      offset: 132
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      private String name;
+          private LocalDate birthDate;
+  - offset: 272
+    length: 166
+    placeholder_text: |-
+      /* TODO */
+      Create a member inner class called Position with two
+      member variables: a name and a salary. Override the toString()
+      method as specified in the instructions
+    initial_state:
+      length: 166
+      offset: 272
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      private class Position{
+              String name;
+              double salary;
+
+              Position(String name,double salary){
+                  this.name = name;
+                  this.salary = salary;
+              }
+
+              public String toString(){
+                  return name+":"+salary;
+              }
+          }
+  - offset: 444
+    length: 65
+    placeholder_text: |-
+      /* TODO */
+      Create a member variable (of Person) of type Position.
+    initial_state:
+      length: 65
+      offset: 444
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: private Position position;
+  - offset: 516
+    length: 174
+    placeholder_text: |-
+      /* TODO */
+      Create a constructor for Person that takes in two Strings. A name and a birthdate in ISO format (yyyy-mm-dd) and sets the corresponding memeber variables correctly
+    initial_state:
+      length: 174
+      offset: 516
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      /**
+           * Creates a Person with a name and a birthdate.
+           * @param name The name of the person
+           * @param birthDate a date in ISO format (YYY-MM-DD)
+           */
+          public Person(String name, String birthDate){
+              this.name = name;
+              this.birthDate = LocalDate.parse(birthDate);
+          }
+  - offset: 696
+    length: 118
+    placeholder_text: |-
+      /* TODO */
+      Create a getAge method that returns the age in years of this person. You need to use the Period class here.
+    initial_state:
+      length: 118
+      offset: 696
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |
+      public int getAge(){
+              return -1*Period.between(LocalDate.now(),this.birthDate).getYears();
+          }
+  - offset: 819
+    length: 125
+    placeholder_text: |-
+      /* TODO */
+      Code the setPosition method. This should take one String and one double for the title and the salary respectively.
+    initial_state:
+      length: 125
+      offset: 819
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public void setPosition(String name, double salary){
+              this.position = new Position(name,salary);
+          }
+  - offset: 950
+    length: 33
+    placeholder_text: |-
+      /* TODO */
+      A getter for position.
+    initial_state:
+      length: 33
+      offset: 950
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public Position getPosition(){
+              return this.position;
+          }
+  - offset: 989
+    length: 113
+    placeholder_text: |-
+      /* TODO */
+      Override the toString() method to display the person's name, age and position (with salary and title).
+    initial_state:
+      length: 113
+      offset: 989
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public String toString(){
+              return name+" - "+getAge()+":"+this.position;
+          }
+  - offset: 1103
+    length: 53
+    placeholder_text: |-
+      /* TODO */
+      Finish closing curly braces and the class.
+    initial_state:
+      length: 53
+      offset: 1103
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '}'
+  text: |
+    /* TODO */
+    Import the java.time.LocalDate and java.time.Period classes.
+    You will need them later.
+
+    /* TODO */
+    Declare the class
+        /* TODO */
+    Create two private member variables to hold the name and the birthDate of the employee. The birthdate has to be a LocalDate
+
+        /* TODO */
+    Create a member inner class called Position with two
+    member variables: a name and a salary. Override the toString()
+    method as specified in the instructions
+
+        /* TODO */
+    Create a member variable (of Person) of type Position.
+
+
+        /* TODO */
+    Create a constructor for Person that takes in two Strings. A name and a birthdate in ISO format (yyyy-mm-dd) and sets the corresponding memeber variables correctly
+
+        /* TODO */
+    Create a getAge method that returns the age in years of this person. You need to use the Period class here.
+        /* TODO */
+    Code the setPosition method. This should take one String and one double for the title and the salary respectively.
+
+        /* TODO */
+    A getter for position.
+
+        /* TODO */
+    Override the toString() method to display the person's name, age and position (with salary and title).
+    /* TODO */
+    Finish closing curly braces and the class.
+  learner_created: false
+status: Unchecked
+record: -1

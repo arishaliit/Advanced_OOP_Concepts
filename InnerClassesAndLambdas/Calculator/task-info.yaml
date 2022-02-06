@@ -1,0 +1,271 @@
+type: edu
+files:
+- name: src/Task.java
+  visible: true
+  placeholders:
+  - offset: 72
+    length: 145
+    placeholder_text: |-
+      /* TODO */
+      Create a public static inner class called Triplet with generics for a first, second and third element. All variables should be publec.
+    initial_state:
+      length: 145
+      offset: 72
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+          public static class Triplet<T,U,V>{
+              public T t;
+              public U u;
+              public V v;
+              public Triplet(T t, U u, V v){
+                  this.t = t;
+                  this.u = u;
+                  this.v = v;
+              }
+          }
+  - offset: 491
+    length: 102
+    placeholder_text: |-
+      /* TODO */
+      Add the code to add a multiplication of 4.5 x 5.4, a division by zero, and divide 56.0/28.0
+    initial_state:
+      length: 102
+      offset: 491
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+              t.add(new Triplet<>(12.4,0.0,"/"));
+              t.add(new Triplet<>(56.0,28.0,"/"));
+              t.add(new Triplet<>(4.5,5.4,"*"));
+  - offset: 613
+    length: 143
+    placeholder_text: |-
+      /* TODO */
+      Utilizing a lambda expression, use the calculator to compute the operation specified in each Triplet with the corresponding numbers.
+    initial_state:
+      length: 143
+      offset: 613
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: x->result+="\n"+c.compute(x.t,x.u,x.v)
+  text: |-
+    import java.util.ArrayList;
+    import java.util.List;
+
+    public class Task {
+    /* TODO */
+    Create a public static inner class called Triplet with generics for a first, second and third element. All variables should be publec.
+
+        public static String result;
+        public static void main(String[] args){
+            Calculator c = new Calculator();
+            List<Triplet<Double,Double,String>> t = new ArrayList<>();
+            t.add(new Triplet<>(3.4,5.2,"+"));
+            t.add(new Triplet<>(2.3,1.23,"-"));
+    /* TODO */
+    Add the code to add a multiplication of 4.5 x 5.4, a division by zero, and divide 56.0/28.0
+
+            t.forEach(/* TODO */
+    Utilizing a lambda expression, use the calculator to compute the operation specified in each Triplet with the corresponding numbers.);
+            System.out.println(result);
+        }
+    }
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Method;
+
+    public class Tests {
+      @Test
+      public void testDoMath() {
+        Method[] m = DoMath.class.getDeclaredMethods();
+        Assert.assertTrue("DoMath should only have one method.",m.length==1);
+        Assert.assertEquals("DoMath's method should be called compute","compute",m[0].getName());
+        for (int i=0; i<m[0].getParameterTypes().length;i++)
+          Assert.assertEquals("The parameter "+i+" of DoMath's compute should be Double","java.lang.Double",m[0].getParameterTypes()[i].getName());
+        Assert.assertEquals("The return type of DoMath's compute should be Double","java.lang.Double",m[0].getReturnType().getName());
+      }
+
+      @Test
+      public void testCalculator(){
+        Calculator c = new Calculator();
+        DoMath div = c.toOperation("/");
+        DoMath mult = c.toOperation("*");
+        DoMath sum = c.toOperation("+");
+        DoMath minus = c.toOperation("-");
+        DoMath mod = c.toOperation("%");
+
+        Assert.assertEquals("Is your toOperation returning the right function for + ?",12.4,sum.compute(11.2,1.2),0.001);
+        Assert.assertEquals("Is your toOperation returning the right function for - ?",10.2,minus.compute(11.2,1.0),0.001);
+        Assert.assertEquals("Is your toOperation returning the right function for * ?",2.5,mult.compute(0.5,5.0),0.001);
+        Assert.assertEquals("Is your toOperation returning the right function for / (by zero)?",Double.POSITIVE_INFINITY,div.compute(1.0,0.0),0.001);
+        Assert.assertEquals("Is your toOperation returning the right function for / ?",5.0,div.compute(15.0,3.0),0.001);
+        Assert.assertEquals("Is your toOperation returning the right function for unknown operations ?",Double.MIN_VALUE,mod.compute(11.2,1.2),0.001);
+
+        Assert.assertEquals("Is your compute method of the Calculator object working correctly for additions?",12.4,c.compute(11.2,1.2,"+"),0.001);
+        Assert.assertEquals("Is your compute method of the Calculator object working correctly for subtraction?",10.2,c.compute(11.2,1.0,"-"),0.001);
+        Assert.assertEquals("Is your compute method of the Calculator object working correctly for multiplication?",1.2,c.compute(3.0,0.4,"*"),0.001);
+        Assert.assertEquals("Is your compute method of the Calculator object working correctly for division by zero?",Double.POSITIVE_INFINITY,c.compute(11.2,0.0,"/"),0.001);
+        Assert.assertEquals("Is your compute method of the Calculator object working correctly for division?",4.0,c.compute(12.0,3.0,"/"),0.001);
+        Assert.assertEquals("Is your compute method of the Calculator object working correctly for unknown operations?",Double.MIN_VALUE,c.compute(11.2,1.2,"%"),0.001);
+      }
+
+      @Test
+      public void testTask(){
+        Task t = new Task();
+        t.main(null);
+        Assert.assertTrue("Are you sure you are putting the elements of the triplets correctly? or that you are implementing the correct function for forEach?",Task.result.contains("Infinity") && Task.result.contains("24.3"));
+      }
+    }
+  learner_created: false
+- name: src/DoMath.java
+  visible: true
+  placeholders:
+  - offset: 46
+    length: 94
+    placeholder_text: |-
+      /* TODO */
+      Specify a compute method that takes two Double objects and returns a Double object.
+    initial_state:
+      length: 94
+      offset: 46
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '    Double compute(Double d1, Double d2);'
+  text: |
+    @FunctionalInterface
+    public interface DoMath{
+    /* TODO */
+    Specify a compute method that takes two Double objects and returns a Double object.
+    }
+  learner_created: false
+- name: src/Calculator.java
+  visible: true
+  placeholders:
+  - offset: 137
+    length: 72
+    placeholder_text: |-
+      /* TODO */
+      Use a lambda expression to set "res" to the correct function.
+    initial_state:
+      length: 72
+      offset: 137
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: (x1,x2)-> x1+x2;
+  - offset: 256
+    length: 72
+    placeholder_text: |-
+      /* TODO */
+      Use a lambda expression to set "res" to the correct function.
+    initial_state:
+      length: 72
+      offset: 256
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: es= (x1,x2)->x1
+  - offset: 375
+    length: 72
+    placeholder_text: |-
+      /* TODO */
+      Use a lambda expression to set "res" to the correct function.
+    initial_state:
+      length: 72
+      offset: 375
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '": res= (x1,x2)'
+  - offset: 494
+    length: 145
+    placeholder_text: |-
+      /* TODO */
+      Use a lambda expression to set "res" to the correct function. You must account for divisions by zero as specified in the instructions.
+    initial_state:
+      length: 145
+      offset: 494
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'e "/": res= (x1,x2)->x2==0?Double.POSITIVE_INF'
+  - offset: 685
+    length: 91
+    placeholder_text: |-
+      /* TODO */
+      In the default value, the res function should return the minimun possible value.
+    initial_state:
+      length: 91
+      offset: 685
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '  default: res= (x1,x2)->D'
+  - offset: 896
+    length: 69
+    placeholder_text: |-
+      /* TODO */
+      set calc to the correct function calling the method above.
+    initial_state:
+      length: 69
+      offset: 896
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '  DoMath calc = '
+  - offset: 981
+    length: 68
+    placeholder_text: |-
+      /* TODO */
+      return the result of calc.compute with the numbers given.
+    initial_state:
+      length: 68
+      offset: 981
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+
+              return calc
+  text: |
+    public class Calculator {
+        public DoMath toOperation(String op){
+            DoMath res;
+            switch (op) {
+                case "+": res= /* TODO */
+    Use a lambda expression to set "res" to the correct function.
+                    break;
+                case "-": r/* TODO */
+    Use a lambda expression to set "res" to the correct function.-x2;
+                    break;
+                case "*/* TODO */
+    Use a lambda expression to set "res" to the correct function.->x1*x2;
+                    break;
+                cas/* TODO */
+    Use a lambda expression to set "res" to the correct function. You must account for divisions by zero as specified in the instructions.INITY:x1/x2;
+                    break;
+              /* TODO */
+    In the default value, the res function should return the minimun possible value.ouble.MIN_VALUE;
+            }
+            return res;
+        }
+
+        public Double compute(Double n1, Double n2, String op){
+          /* TODO */
+    set calc to the correct function calling the method above.toOperation(op);/* TODO */
+    return the result of calc.compute with the numbers given..compute(n1,n2);
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

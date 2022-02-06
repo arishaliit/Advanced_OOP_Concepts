@@ -1,0 +1,171 @@
+type: edu
+files:
+- name: src/Task.java
+  visible: true
+  placeholders:
+  - offset: 160
+    length: 34
+    placeholder_text: "/* TODO \nCreate a racer with c1 */"
+    initial_state:
+      length: 34
+      offset: 160
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: acer1 = new Ra
+  - offset: 216
+    length: 33
+    placeholder_text: "/* TODO \nCreate a Racer with c2*/"
+    initial_state:
+      length: 33
+      offset: 216
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' racer2 = new '
+  - offset: 256
+    length: 143
+    placeholder_text: "/* TODO:\nCreate two threads using \"new Thread\" and pass\
+      \  one Runnable \nto each thread.  It is your job to figure out which are the\
+      \ Runnables.*/"
+    initial_state:
+      length: 143
+      offset: 256
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      2);
+              new Thread(racer1).start();
+              new Thread(ra
+  text: "public class Task {\n    public static void main(String[] args){\n      \
+    \  Car c1 = new Car(\"Kona\",250);\n        Car c2 = new Car(\"Ioniq\",220);\n\
+    \n        Runnable r/* TODO \nCreate a racer with c1 */cer(c1);\n        Racer/*\
+    \ TODO \nCreate a Racer with c2*/Racer(c/* TODO:\nCreate two threads using \"\
+    new Thread\" and pass  one Runnable \nto each thread.  It is your job to figure\
+    \ out which are the Runnables.*/cer2).start();\n    }\n}"
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+
+    public class Tests {
+      @Test
+      public void testCar() {
+        // put your test here
+        Car c = new Car("Max",40);
+        c.move(30.5);
+        c.move(0.5);
+        Assert.assertEquals("Your odometer may not be correct",31.0,c.odometer,0.01);
+      }
+
+      @Test
+      public void testRacer(){
+        Racer r = new Racer(new Car("Tesla",260));
+        Assert.assertTrue(r instanceof Runnable);
+        long t1 = System.currentTimeMillis();
+        r.run();
+        long t2 = System.currentTimeMillis();
+        long totalTime = t2-t1;
+        Assert.assertEquals("Are you sure your racer is going all the way to 1000 miles?",1000,r.c.odometer,1);
+        Assert.assertTrue("Is your thread sleeping while charging?",totalTime>=750);
+      }
+    }
+  learner_created: false
+- name: src/Car.java
+  visible: true
+  placeholders:
+  - offset: 460
+    length: 150
+    placeholder_text: "/* TODO \nmove should subtract  'miles' from the miles left\
+      \ to travel and add 'miles' to the odometer. The miles to travel cannot be less\
+      \ than zero. */"
+    initial_state:
+      length: 150
+      offset: 460
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      this.miles = this.miles>0?this.miles - miles:0;
+              this.odometer+=miles;
+  text: "public class Car {\n    public double miles; // number of miles left to travel\n\
+    \    public double odometer; // total miles travelled by the car\n    public String\
+    \ name; // the name of the car\n    public double maxMiles; // the maximum number\
+    \ of miles when full.\n\n    public Car(String name,double miles){\n        this.miles\
+    \ = miles;\n        odometer = 0;\n        this.name = name;\n        this.maxMiles\
+    \ = miles;\n    }\n\n    public void move(double miles){\n        /* TODO \nmove\
+    \ should subtract  'miles' from the miles left to travel and add 'miles' to the\
+    \ odometer. The miles to travel cannot be less than zero. */\n    }\n\n    public\
+    \ void charge(){\n        this.miles = maxMiles;\n    }\n\n    public String toString(){\n\
+    \        return name+\": odo:\"+odometer+\" - miles left:\"+miles;\n    }\n\n\
+    }\n"
+  learner_created: false
+- name: src/Racer.java
+  visible: true
+  placeholders:
+  - offset: 19
+    length: 90
+    placeholder_text: "/* TODO \nAdd something here so that you can pass this Racer\
+      \ to the constructor of Thread*/"
+    initial_state:
+      length: 90
+      offset: 19
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: implements Runnable
+  - offset: 204
+    length: 76
+    placeholder_text: "/* TODO \nCreate a constructor that receives a Car objec and\
+      \ initializes c.*/"
+    initial_state:
+      length: 76
+      offset: 204
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public Racer(Car c){
+              this.c=c;
+          }
+  - offset: 299
+    length: 151
+    placeholder_text: "/* TODO \nOverride one method.  This is the task the thread\
+      \ will perform... You have to determine which method this is.\nCheck the method\
+      \ description. */"
+    initial_state:
+      length: 151
+      offset: 299
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      public void run() {
+              while (c.odometer<distance)
+                  if (c.miles==0){
+                      System.out.println(c+"...Charging");
+                      c.charge();
+                      try {
+                          Thread.sleep((int) c.miles);
+                      }catch(InterruptedException e){
+                          e.printStackTrace();
+                      }
+                  } else {
+                      c.move(1);
+                  }
+              System.out.println("Finish:"+c);
+          }
+  text: "public class Racer /* TODO \nAdd something here so that you can pass this\
+    \ Racer to the constructor of Thread*/{\n    Car c;\n    int distance = 1000;\
+    \ // this is a racer that is going to run 1000 miles.\n\n    /* TODO \nCreate\
+    \ a constructor that receives a Car objec and initializes c.*/\n    @Override\n\
+    \    /* TODO \nOverride one method.  This is the task the thread will perform...\
+    \ You have to determine which method this is.\nCheck the method description. */\n\
+    }\n"
+  learner_created: false
+status: Unchecked
+record: -1

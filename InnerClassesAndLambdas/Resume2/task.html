@@ -1,0 +1,25 @@
+<html>
+<h1>Resume 2</h1>
+<h2>Task 3. Anonymous Inner Classes</h2>
+
+<p>This is almost exactly as Task 2. A lot of the code can be
+    copied and pasted in the corresponding files. In fact,
+    I recommend you do that.</p>
+
+<p>The <code>Person</code> class is exactly the same as in Task 2. It is safe
+    to copy it exactly as is. The <code>Task</code> class is
+    also exactly as in Task 2. Copy it into its file. Lastly,
+    you can copy the code in the <code>Resume</code> class in pieces. There are very few differences with Task 2. </p>
+<p>The differences you have to figure out and change are:</p>
+<ul>
+    <li>The <code>List</code> variable to hold the <code>Experience</code> objects
+        will be implemented as a <code>PriorityQueue</code>. The idea is that
+        no matter the order in which you enter the experiences, they will
+        be read from most recent to least recent.</li>
+    <li>The constructor should initialize the priority queue with an anonymous <code>Comparator</code> class. The
+        <code>compare</code> method should be implemented to return
+        a negative value if the second's object end date is bigger than the first objects end date, and a positive value if the second date is
+        smaller than the first. You must use the keyword <code>new</code> within the parameter of the constructor of the priority queue.</li>
+    <li>Lastly, add a standard getter for experience: <code>getExperience()</code> </li>
+</ul>
+</html>

@@ -1,0 +1,81 @@
+<html>
+<p>In this task you will have to complete two classes:
+<ol>
+    <li>The <code>Task</code> class</li>
+    <li>The <code>Database</code> class.</li>
+</ol></p>
+
+<h3>Resources</h3>
+<p>
+    If you look at the project, at the bottom there is a
+    folder named <code>resources</code>. In this folder
+    you will see a file called <code>iris.data</code>.
+    This is a text file. Double click on it and look at its
+    contents.
+</p>
+<p><code>iris.data</code> is what is known as a comma separated values
+    file (or CSV file). That is, if you think of the file as
+    a grid, each line is a row and commas delimit columns.</p>
+<p>For example, the first three lines of the file are:<br>
+
+    <code>
+        s-length,s-width,p-length,p-width,species<br/>
+        5.1,3.5,1.4,0.2,Iris-setosa<br/>
+        4.9,3.0,1.4,0.2,Iris-setosa<br/>
+    </code><br>
+    Which is equivalent to:<br/>
+<table border="1">
+    <tr>
+        <td>s-length</td><td>s-width</td><td>p-length</td><td>p-width</td><td>species</td>
+    </tr>
+    <tr>
+        <td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>Iris-setosa</td>
+    </tr>
+    <tr>
+        <td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>Iris-setosa</td>
+    </tr>
+</table>
+
+</p>
+
+<p>The first line of <code>iris.data</code> contains the
+    headers of the columns.</p>
+<p>
+    The following lines contain the actual data.
+</p>
+<h3>Classes (Your job)</h3>
+<ol>
+    <li>The purpose of the <code>Database</code> class is to stores the contents
+        of a CSV file in several variables and to facilitate access to
+        those contents. In the <code>Database</code> class you will have to complete
+        two methdos
+        <ul>
+            <li>the Constructor, that takes in the contents of a CSV file as a String: In here
+                you should put code to initialize all of the member variables of the class:
+                <ol>
+                    <li><code>colNames</code>: is an array with the column names (from the first row)</li>
+                    <li><code>numRows</code>: is the total number of data rows (not counting the first line with the column names)</li>
+                    <li><code>data</code>: is a 2D array that contains the data as a grid of <code>String</code> objects.</li>
+                </ol>
+            </li>
+            <li>The <code>getValue</code> method takes a column name and a row number and retrieves the corresponding element.</li>
+        </ul>
+    </li>
+    <li>The Task class has one method to compete:
+        <code>readCSV</code>.
+        <ul>
+            <li>This method takes in a file name as parameter and returns a <code>Database</code> object</li>
+            <li>You have to complete the bits and pieces to take the file name and read the
+                contents of the file into the <code>String contents</code>.
+                Then use <code>contents</code> to initialize a <code>Database</code>
+                object and return it.</li>
+            <li>
+                A special note on reading <code>byte[]</code>s: You can convert a <code>byte[]</code> to a <code>String</code>
+                with a special constructor for the <code>String</code> class. This
+                constructor takes in the <code>byte[]</code>, the starting position of that array, and the number of elements to
+                read from it. Check the Javadocs for more information.
+            </li>
+        </ul>
+    </li>
+</ol>
+</html>

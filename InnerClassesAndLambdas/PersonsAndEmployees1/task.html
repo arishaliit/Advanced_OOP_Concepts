@@ -1,0 +1,35 @@
+<html>
+<h1>Persons and Employees</h1>
+<h2>Task 1. Simple Member Inner Classes</h2>
+
+<p>In this class you will build a <code>Person</code> class.
+    Now, that person will be an employee of a company, with a position
+    and a salary. However, if you have a class that represents
+    a generic person, the position and salary can be conceptually
+    separated from the basic data by using an inner class.</p>
+<p>For this task you will have to:</p>
+
+<ul>
+    <li>Create a <code>Person</code> class in the file <code>Person.java</code></li>
+    <li>Import the java.time.LocalDate and java.time.Period classes.
+        You will need them later.</li>
+    <li>Create a two private member variables to hold the <code>name</code>
+        and the <code>birthDate</code> of the employee. The birthdate has to be a <code>LocalDate</code></li>
+    <li>Create a <code>private</code> member inner class called <code>Position</code> (non-static). </li>
+    <li><code>Position</code> has two package-protected member variables. One to hold the <code>name</code>
+        and another for the <code>salary</code> of the employee. The salary has to be a <code>double</code></li>
+    <li><code>Position</code> overrides the <code>toString()</code> method and prints:<code>name+":"+salary</code>.</li>
+    <li>You must also add a member variable in <code>Person</code> called
+        <code>position</code> of type <code>Position</code>.</li><br>
+    <li>Create a constructor for Person that takes in two Strings. A name and a birthdate in ISO format (yyyy-mm-dd) and sets the corresponding memeber variables correctly.
+        Key here is to go from a <code>String</code> to a <code>LocalDate</code> to be able to set the <code>birthDate</code> variable correctly.</li><br>
+    <li>Create a method called <code>getAge()</code> that returns an <code>int</code> with
+        the age of this person in years. You have to use the <code>Period</code> class to
+        compute the period between the date right now and the birthdate, and convert it in years. This is your research.</li>
+    <li>Create a method called <code>setPosition</code> that takes in a <code>String</code> and a <code>double</code> for
+        the title of the position and the salary. This should create a <code>Position</code> object and
+        assign it to the member variable <code>position</code>.</li>
+    <li>A getter for <code>position</code></li>
+    <li>Override the toString() method to display the person's name, age and position (with salary and title).</li>
+</ul>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<h1>Resume Builder</h1>
+<h2>Task 2. Static v. Non-Static Inner Classes </h2>
+
+<p>In this class we are going to expand on Task1. We will
+    create the same <code>Person</code> class and we will add
+    a new class <code>Resume</code>.</p>
+
+<p>The specifications are as follows:</p>
+
+<ul>
+    <li>Copy and paste the <code>Person</code> class from task 1 into
+        <code>Person.java</code></li>
+    <li>Inside the <code>Resume</code> class:</li>
+    <ul>
+        <li>Create a <code>public</code> member inner class
+            called <code>Education</code>. This class will represent the education of a person.</li>
+        <li><code>Education</code> must have two member variables to hold the name of the school and the major.</li>
+        <li><code>Education</code> should have getters and setters for these variables, and a constructor that initializes the school and the major, in that order</li>
+        <li><code>Education</code> must override the <code>toString()</code> method to print the major, the word <code>at</code> and the name of the school</li>
+        <li>Create a <code>public</code> and <code>static</code> inner class called <code>Experience</code>. This will represent the experiences of the individuals. For example: "VP of Sales" from 2018 to 2019</li>
+        <li><code>Experience</code> must have a variable to hold the title of the job, and two integers to hold the start year and end year of that position. </li>
+        <li><code>Experience</code> must have a constructor that initializes the title, the start date and the end date in that order.</li>
+        <li><code>Experience</code> overrides the <code>toString()</code> method to print the start year, a dash, the end year and the title. For example: 2018-2019: VP of Sales</li>
+    </ul>
+    <li>In addition, the <code>Resume</code> class should have:</li>
+    <ul>
+        <li>A private member variable of type <code>Person</code></li>
+        <li>Two private member variables of type <code>List</code>. One with objects of type <code>Education</code> and one with objects of type <code>Experience</code></li>
+        <li>A public constructor that takes in a <code>Person</code> variable and sets the <code>Person</code> variable and makes all necessary initializations for the other variables.</li>
+        <li>A public void method <code>addExperience</code> that receives an object of type <code>Experience</code> and adds it to the corresponding <code>List</code></li>
+        <li>A public void method <code>addEducation</code> that receives an object of type <code>Education</code> and adds it to the corresponding <code>List</code></li>
+        <li>Override the <code>toString()</code> method to include the Person's name, age and actual position on the first line. Then a line that says "Experience", then all the <code>Experience</code> objects, then a line that says "Education" and below it all the <code>Education</code> objects. Thus, creating a resume.</li>
+    </ul>
+    <li>Finish the TODOs in the <code>Task.java</code> file.</li>
+</ul>
+</html>

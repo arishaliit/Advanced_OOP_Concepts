@@ -1,0 +1,164 @@
+type: edu
+files:
+- name: src/Shape.java
+  visible: true
+  placeholders:
+  - offset: 243
+    length: 105
+    placeholder_text: '/* TODO : Implement a constructor that takes in a String as
+      parameter and sets the name of this object.*/'
+    initial_state:
+      length: 105
+      offset: 243
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: public Shape(String name){this.setName(name);}
+  text: |
+    public class Shape {
+        protected String name;
+        public String getName(){ return this.name;}
+        public void setName(String name){this.name = name;}
+        public double getArea(){return 0.0;}
+        public double getPerimeter(){return 0.0;}
+        /* TODO : Implement a constructor that takes in a String as parameter and sets the name of this object.*/
+    }
+  learner_created: false
+- name: test/TestShape.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Constructor;
+
+    public class TestShape {
+
+        @Test
+        public void testShapeConstructor() throws NoSuchMethodException {
+            Class[] params = {String.class};
+            Constructor sc = Shape.class.getConstructor(params);
+            Assert.assertNotNull("Constructor with String not present",sc);
+            Assert.assertTrue("You only need to implement one constructor",Shape.class.getConstructors().length==1);
+        }
+
+        @Test
+        public void testShapeConstructorFunctionality() {
+            Shape s = new Shape("mick");
+            Assert.assertEquals("Name variable is not functioning correctly. Check your constructor",s.getName(),"mick");
+        }
+    }
+  learner_created: false
+- name: src/Square.java
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 155
+    placeholder_text: |-
+      /* TODO : Complete the Square class.
+       Add variables if you need.
+       Remember to use the @Override to override methods.
+      intelliJ will be helpful if you do).*/
+    initial_state:
+      length: 155
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |
+      public class Square extends Shape{
+          double side;
+          public Square(double side,String name){
+              super(name);
+              this.side=side;
+          }
+
+          @Override
+          public double getArea(){return this.side*this.side;}
+
+          @Override
+          public double getPerimeter() {
+              return this.side * 4;
+          }
+
+          @Override
+          public boolean equals(Object obj) {
+              if(obj!=null && obj.getClass() == this.getClass()){
+                  Square s = (Square)obj;
+                  return this.name.equals(s.name) && this.side==s.side;
+              }
+              return false;
+          }
+
+          @Override
+          public String toString() {
+              return this.name+":"+this.side;
+          }
+      }
+  text: |-
+    /* TODO : Complete the Square class.
+     Add variables if you need.
+     Remember to use the @Override to override methods.
+    intelliJ will be helpful if you do).*/
+  learner_created: false
+- name: test/TestSquare.java
+  visible: false
+  text: |
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.lang.reflect.Constructor;
+
+    public class TestSquare {
+      @Test
+      public void testInheritance(){
+        Square s = new Square(3,"john");
+        Assert.assertTrue("Square does not inherit from Shape",s instanceof Shape);
+      }
+
+      @Test
+      public void testConstructor() throws
+              NoSuchMethodException {
+        Class[] params = {Double.TYPE,String.class};
+        Constructor sc = Square.class.getConstructor(params);
+        Assert.assertNotNull("Constructor with a double and a String not present",sc);
+        Assert.assertTrue("You only need to implement one constructor",Shape.class.getConstructors().length==1);
+      }
+
+      @Test
+      public void testAreaAndPerimeter(){
+        Square s = new Square(3.2,"room 1");
+        try{
+          Assert.assertEquals("Your area is not being calculated correctly",s.getArea(),10.24,0.001);
+          Assert.assertEquals("Your perimeter is not being calculated correctly",s.getPerimeter(),12.8,0.001);
+        } catch(Exception e){
+          Assert.fail("Are you sure you overrode the correct methods?");
+        }
+      }
+
+      @Test
+      public void testEquals(){
+        Square s = new Square(3,"juan");
+        Square s1 = new Square(3,"juan");
+        Assert.assertEquals("Your constructor does not seem to be setting the name correctly",s,s1);
+        s1.setName("john");
+        Assert.assertNotEquals("Did you inherit the variables from Shape? you should not create a new name variable, nor modify or add getters and setters",s,s1);
+        Shape o = new Square(3,"juan");
+        Assert.assertEquals("Did you check to see if both objects are of the same class?",s,o);
+        Assert.assertNotEquals("Did you check that the object was null?",s,null);
+      }
+
+      @Test
+      public void testToString(){
+        Square s = new Square(3,"juan");
+        Assert.assertEquals("Your toString method is not returning the correct string.","juan:3.0",s.toString());
+      }
+    }
+  learner_created: false
+status: Unchecked
+feedback:
+  message: |-
+    Failed to launch checking. <a href="reload_gradle">Reload Gradle project</a>
+    For more information, see <a href="https://plugins.jetbrains.com/plugin/10081-edutools/docs/troubleshooting-guide.html#no_tests_have_run">the Troubleshooting guide</a>
+  time: Sun, 06 Feb 2022 23:12:21 UTC
+record: -1

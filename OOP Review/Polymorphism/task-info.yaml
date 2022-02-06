@@ -1,0 +1,339 @@
+type: edu
+files:
+- name: src/Task.java
+  visible: true
+  placeholders:
+  - offset: 470
+    length: 77
+    placeholder_text: |-
+      /* TODO */
+      Set the tmeperature of bart to 101.2, maggie 100.1, and lisa 100.6
+    initial_state:
+      length: 77
+      offset: 470
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      ((ChildPatient)bart).setTemperature(101.2);
+              maggie.setTemperature(100.1);
+              lisa.setTemperature(100.6);
+  - offset: 581
+    length: 120
+    placeholder_text: |-
+      /* TODO */
+      Add the following jobs for homer: Nuclear Engineer, Major and Bar Owner.
+      For marge only one job: Hose Keeper.
+    initial_state:
+      length: 120
+      offset: 581
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      homer.addJob("Nuclear Engineer");
+              homer.addJob("Major");
+              homer.addJob("Bar Owner");
+              marge.addJob("House Keeper");
+  - offset: 771
+    length: 115
+    placeholder_text: |-
+      /* TODO */
+      Insert the Simpsons in the Patients' array: in the following order:
+      bart, lisa, maggie, homer and marge.
+    initial_state:
+      length: 115
+      offset: 771
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      this.patients[0] = bart;
+              this.patients[1] = (ChildPatient) lisa;
+              this.patients[2] = maggie;
+              this.patients[3] = homer;
+              this.patients[4] = (AdultPatient) marge;
+  text: |-
+    public class Task {
+        Person[] patients = new Person[5];
+        public static void main(String[] args) {
+            Task t = new Task();
+            t.run();
+        }
+
+        public void run(){
+            Person bart = new ChildPatient();
+            Diagnosable lisa = new ChildPatient();
+            ChildPatient maggie = new ChildPatient();
+            AdultPatient homer = new AdultPatient();
+            Employable marge = new AdultPatient();
+
+            // Set the temperature of each child.
+            /* TODO */
+    Set the tmeperature of bart to 101.2, maggie 100.1, and lisa 100.6
+
+            // set the jobs
+            /* TODO */
+    Add the following jobs for homer: Nuclear Engineer, Major and Bar Owner.
+    For marge only one job: Hose Keeper.
+
+            //insert all of the sympsons in the patients array.
+            /* TODO */
+    Insert the Simpsons in the Patients' array: in the following order:
+    bart, lisa, maggie, homer and marge.
+        }
+
+        public boolean isAdult(Person p){
+            return p instanceof Employable;
+        }
+    }
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    public class Tests {
+
+      @Test
+      public void testTempSetters(){
+        ChildPatient b = new ChildPatient();
+        b.setTemperature(100.5);
+        Assert.assertTrue("Has fever should check the temperature of the patient.",b.hasFever());
+      }
+
+      @Test
+      public void testEmployableSettersGetters(){
+        AdultPatient homer = new AdultPatient();
+        homer.addJob("Nuclear Engineer");
+        homer.addJob("Major");
+        homer.addJob("Bar Owner");
+        Assert.assertEquals("Get previous jobs is not returning all the jobs",3,homer.getPreviousJobs().size());
+      }
+
+      @Test
+      public void testArrayOfPeople() {
+        // put your test here
+        Task t = new Task();
+        t.run();
+        Assert.assertTrue("Did you assign bart to the first position?",t.patients[0] instanceof ChildPatient);
+        Assert.assertTrue("Did you assign bart to the first position?",t.patients[0] instanceof Diagnosable);
+        Assert.assertTrue("Is bart a child patient?", t.patients[0] instanceof ChildPatient);
+        Assert.assertTrue("Temp. Setters working?",((ChildPatient)(t.patients[0])).hasFever());
+        Assert.assertEquals("Employable setters working?", 3, ((Employable) t.patients[3]).getPreviousJobs().size());
+      }
+
+      @Test
+      public void testAdultPatient(){
+        Task t = new Task();
+        t.run();
+        Assert.assertTrue("An adult patient also an Employable?", t.patients[4] instanceof Employable);
+        Assert.assertTrue("Is an adult patient a diagnosable?", t.patients[4] instanceof Diagnosable);
+        Assert.assertTrue("Is Marge an adult patient?", t.patients[4] instanceof AdultPatient);
+      }
+    }
+  learner_created: false
+- name: src/Person.java
+  visible: true
+  text: |
+    public class Person {
+        String name;
+        String gender;
+        int birthYear;
+        int birthMonth;
+        int birthDay;
+
+        public int getBirthMonth() {
+            return birthMonth;
+        }
+
+        public void setBirthMonth(int birthMonth) {
+            this.birthMonth = birthMonth;
+        }
+
+        public int getBirthDay() {
+            return birthDay;
+        }
+
+        public void setBirthDay(int birthDay) {
+            this.birthDay = birthDay;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getGender() {
+            return gender;
+        }
+
+        public void setGender(String gender) {
+            this.gender = gender;
+        }
+
+        public int getBirthYear() {
+            return birthYear;
+        }
+
+        public void setBirthYear(int birthYear) {
+            this.birthYear = birthYear;
+        }
+    }
+  learner_created: false
+- name: src/Diagnosable.java
+  visible: true
+  placeholders:
+  - offset: 60
+    length: 95
+    placeholder_text: |-
+      /* TODO */
+      Declare a hasFever method that reutrns true is the temperature
+      is greater than 100.4
+    initial_state:
+      length: 95
+      offset: 60
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '    default boolean hasFever(){return this.getTemperature()>100.4;}'
+  - offset: 238
+    length: 121
+    placeholder_text: "/* TODO */\nDecleare two setters. One for systolic and one\
+      \ for diastolic. \nCheck the getters to infer the parameter types."
+    initial_state:
+      length: 121
+      offset: 238
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+          void setSystolic(int s);
+          void setDiastolic(int d);
+  text: "public interface Diagnosable {\n    double getTemperature();\n/* TODO */\n\
+    Declare a hasFever method that reutrns true is the temperature\nis greater than\
+    \ 100.4\n    int getSystolic();\n    int getDiastolic();\n    void setTemperature(double\
+    \ t);\n/* TODO */\nDecleare two setters. One for systolic and one for diastolic.\
+    \ \nCheck the getters to infer the parameter types.\n}\n"
+  learner_created: false
+- name: src/Employable.java
+  visible: true
+  text: |
+    import java.util.ArrayList;
+
+    public interface Employable {
+        //The ArrayList type implements a List data structure.
+        ArrayList<String> getPreviousJobs();
+        void addJob(String job);
+    }
+  learner_created: false
+- name: src/AdultPatient.java
+  visible: true
+  placeholders:
+  - offset: 54
+    length: 119
+    placeholder_text: "/* TODO */\nImplement the class Adult Patient. \nAn adult patient\
+      \ is a Person that is Diagnosable and that is Employable."
+    initial_state:
+      length: 119
+      offset: 54
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2
+       extends Person implements Diagnosable,Employable{
+          double temperature;
+          int systolic;
+          int diastolic;
+          ArrayList<String> jobs;
+
+          @Override
+          public double getTemperature() {
+              return temperature;
+          }
+
+          @Override
+          public int getSystolic() {
+              return systolic;
+          }
+
+          @Override
+          public int getDiastolic() {
+              return diastolic;
+          }
+
+          @Override
+          public void setTemperature(double t) {
+              this.temperature = t;
+          }
+
+          @Override
+          public void setSystolic(int s) {
+              this.systolic = s;
+          }
+
+          @Override
+          public void setDiastolic(int d) {
+              this.diastolic = d;
+          }
+
+          @Override
+          public ArrayList<String> getPreviousJobs() {
+              return this.jobs;
+          }
+
+          @Override
+          public void addJob(String job) {
+              if(this.jobs==null)
+                  this.jobs = new ArrayList<String>();
+              this.jobs.add(job);
+          }
+      }
+  text: "import java.util.ArrayList;\n\npublic class AdultPatient/* TODO */\nImplement\
+    \ the class Adult Patient. \nAn adult patient is a Person that is Diagnosable\
+    \ and that is Employable."
+  learner_created: false
+- name: src/ChildPatient.java
+  visible: true
+  text: |
+    public class ChildPatient extends Person implements Diagnosable{
+        double temperature;
+        int systolic;
+        int diastolic;
+        @Override
+        public double getTemperature() {
+            return temperature;
+        }
+
+        @Override
+        public int getSystolic() {
+            return systolic;
+        }
+
+        @Override
+        public int getDiastolic() {
+            return diastolic;
+        }
+
+        @Override
+        public void setTemperature(double t) {
+            temperature = t;
+        }
+
+        @Override
+        public void setSystolic(int s) {
+            systolic = s;
+        }
+
+        @Override
+        public void setDiastolic(int d) {
+            diastolic = d;
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,34 @@
+<html>
+<h3>Another Database</h3>
+<p>The task for this module is to complete another
+    two classes named <code>Database</code> and <code>Task</code>.</p>
+
+<p>The idea is that you will have a <code>Database</code> of restaurants
+    with minimal functionality.</p>
+<h3>Specific Tasks</h3>
+<ul>
+    <li><code>Task</code> has two methods besides <code>main</code>.
+        <ul><li><code>readFile</code>: You should complete this method first.
+            It is similar to the readFile method in the CSVFiles task, but it uses
+            a <code>BufferedReader</code>. Your job is to complete it and
+            return a <code>String</code> with the contents of the file.<li>
+            <li><code>readJson</code>: Code this method second, as you can use the
+                previous method for help. This method takes a filename (<code>String</code>) and
+                reads the file as a <code>String</code> and creates a JSON
+                document from it. Then, returns it.</li>
+            <div class="hint">Check the last slide from io to find out how to
+                create a JsonObject from a String.</div>
+            <li><code>Database</code> has two methods and a constructor.
+                <ul>
+                    <li>The constructor should set a member variable. You pick
+                        the name.</li>
+                    <li><code>getRestaurant</code>. Given the name of a
+                        restaurant, this method returns the JSON object corresponding
+                        to that restaurant.</li>
+                    <li><code>getAverageReviews</code>: This method should lookup
+                        the reviews for a given restaurant and obtain the average.
+                        To obtain the total size of a <code>JsonArray</code> you can
+                        use the <code>size()</code> method.</li>
+                </ul>
+                <h4>Don't forget to run the "check" until you get the task in the best shape you can</h4>
+</html>

@@ -1,0 +1,80 @@
+<html>
+The task here is to code a <code>Card</code> class that represents
+a playing card. Then code a <code>Deck</code> class that
+can hold all the cards in a deck and can deal random cards.
+We also want to be able to use the for-each loop with the
+<code>Deck</code> class. For that we need to create an <code>Iterator</code>.
+We will call it <code>DeckIterator</code>.
+Lastly, you will have to complete a few methods in the <code>Task</code>
+class.
+<h3>Card</h3>
+<ul>
+    <li>The constructor takes a value and a suit that
+        match the types of the member variables, and initializes them. </li>
+ <li>The possible <code>values</code> are Ace,2,3,4,5,6,7,8,9,10,Jack,Queen,King;
+ and, for reference (you don't need this here) their corresponding values are 1,2,3,4,5,6,7,8,9,10,11,12,13.
+     The possible values for <code>suit</code> are Hearts,Diamond,Clubs and Spades</li>
+    <li>Code all getters and setters</li>
+    <li>Override the <code>toString</code> method. Make
+        it return the value of the card, the word "of" and the suit
+        of the card. For example: "4 of Spades"</li>
+</ul>
+<h3>Deck (first pass)</h3>
+The <code>Deck</code> has two variables for you. One
+is a <code>List</code> that can hold the cards; the
+other is a <code>String[]</code> that may help you
+initialize the cards in a deck.
+<ul>
+    <li>The constructor should create all the
+        cards in a deck ("Ace",2,3,4,5,6,7,8,9,10,"Jack","Queen" and "King") for every
+        suit ("Hearts","Clubs","Diamonds","Spades"), and
+        place them in the <code>List</code>. Also, the cards with
+        a face value should be <code>Card&lt;String,String&gt;</code>while those
+        with a number value should be <code>Card&lt;Integer,String&gt;</code></li>
+    <li><code>dealCard</code> returns a random card and removes
+        it from the deck. This is <strong>almost exactly</strong> the
+        same as the <code>drawOne</code> in the <code>Bag</code> class
+        you coded earlier.</li>
+    <li><code>size</code> returns the number of cards
+        in the deck</li>
+</ul>
+
+<h3>DeckIterator</h3>
+This is an iterator for a <code>Deck</code> of <code>Card</code>
+objects.
+<ul>
+    <li>Implement the <code>Iterator</code> interface with a generic type E.</li>
+    <li>You do not need to override all methods of that interface. Only those
+        already overridden in the code.</li>
+    <li>The constructor should initialize a <code>Deck</code> variable</li>
+    <li>The <code>hasNext</code> method should say <code>true</code> if the
+        deck contains more elements (i.e. if the size is greater than zero.). Can you do this in one line?</li>
+    <li>The <code>next</code> method returns the next <code>Card</code> in the <code>Deck</code>.
+        Now, because of the use of generics, you will have to cast that card to be of type E. Lastly,
+        because the Deck deals cards randomly, you can simply deal a card and return it. Can you do this in one line?</li>
+</ul>
+
+<h3>Deck (second pass)</h3>
+In order for the <code>Deck</code> class to be able to use
+the iterator (and the for-each loop) (<code>for (Card card:Deck)</code> syntax,
+<code>Deck</code> needs to implement <code>Iterable</code>.
+<ul>
+    <li>Implement <code>Iterable</code> with a generic type <code>Card</code> as you
+        will be iterating over <code>Card</code> objects.</li>
+    <li>From the methods of <code>Iterable</code> only implement the
+        <code>iterator</code> method. This method should return your
+        <code>DeckIterator</code>. TIP: You can pas <code>this</code> to
+        the constructor of the <code>DeckIterator</code> to
+        iterate over the cards in the deck.</li>
+</ul>
+
+<h3>Task</h3>
+Here, you have to complete a few sections.
+<ul>
+    <li>Complete the enhanced for loop (or for-each) that loops through
+        the deck <code>d</code> and prints the cards.</li>
+    <li>Complete the method <code>addCards</code>. This should add the value of the
+        cards in the <code>ArrayList</code>. Keep in mind that the value of:"Ace" is 1,
+        "Jack" is 11, "Queen" is 12, and "King" is 13.</li>
+</ul>
+</html>

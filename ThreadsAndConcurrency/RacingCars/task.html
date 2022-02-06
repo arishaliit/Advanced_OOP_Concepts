@@ -1,0 +1,45 @@
+<html>
+<h1>A Car Race.</h1>
+<p>This task will take you into creating <code>Car</code>s, <code>Racer</code>s
+    and then racing the cars.</p>
+
+
+<h3>Car</h3>
+<p>
+    This class has four member variables:
+<ul>
+    <li><code>miles</code>:The number of miles left to travel with the current fuel</li>
+    <li><code>odometer</code>: total miles travelled by the car</li>
+    <li><code>name</code>: The name (brand) of the car</li>
+    <li><code>maxMiles</code>: The maximum number of miles this car can travel when full.</li>
+</ul>
+</p>
+<p>Implement the <code>move</code> method. When this method is called, the
+    miles left in the car diminish by the amount passed into the method. The odometer
+    adds those miles to its count. If the miles in the car reach zero, the car
+    does not move. That is, it does not discount more miles nor add to the odometer.
+</p>
+
+<h3>Racer</h3>
+<p>This makes a regular car into a racer. That is, a car that can race.... in its own thread</p>
+<ul>
+    <li>In the class you need to implement the Runnable interface, so that <code>Racer</code> objects can run in a thread</li>
+    <li>Create a constructor that takes in a <code>Car</code> object and
+        initializes this <code>Racer</code></li>
+    <li>Because this class is <code>Runnable</code>, you need to implement one method: <code>run</code>.
+        The implementation of <code>run</code> should do the following: As long as the car's odometer
+        has not reached the <code>distance</code> this racer is supposed to race,
+        the car will move 1 mile. If the car runs out of fuel (i.e. 0 miles left in the tank), the
+        car needs to charge before moving. When the car charges, it needs to
+        print "Charging" and the current thread should sleep as many milliseconds as
+        miles were charged. For example, in <code>Task.java</code> "Kona" will charge for 250 milliseconds, while "Ioniq" will charge for 220.
+        This basically simulates a slower re-fueling speed for cars with a bigger range/tank capacity</li>
+</ul>
+
+<h3>Task</h3>
+<p>Here you need to: Set <code>racer1</code> and <code>racer2</code> to be <code>Racer</code> objects with each <code>Car</code> object</p>
+<p>You also need to create and start two new <code>Thread</code> objects with the <code>Runnable</code>s.<div class="hint">
+    You have to think.... which objects within the main method are "Runnable"?
+</div>
+</p>
+</html>

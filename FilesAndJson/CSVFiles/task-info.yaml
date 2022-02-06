@@ -1,0 +1,156 @@
+type: edu
+files:
+- name: src/Task.java
+  visible: true
+  placeholders:
+  - offset: 286
+    length: 68
+    placeholder_text: |-
+      /* TODO.
+      Change what needs to go here to start reading "filename" */
+    initial_state:
+      length: 68
+      offset: 286
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: new BufferedInputStream(new FileInputStream(filename))
+  - offset: 385
+    length: 83
+    placeholder_text: "/* TODO \nCreate a byte array of about 1024 bytes or however\
+      \ many bytes you want. */"
+    initial_state:
+      length: 83
+      offset: 385
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: new byte[1024]
+  - offset: 510
+    length: 145
+    placeholder_text: "/* TODO \nCreate a while loop to read the contents of the file\
+      \ and put them in the variable \"contents\" declared at the beginning of the\
+      \ method. */"
+    initial_state:
+      length: 145
+      offset: 510
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      while ((lengthRead = in.read(buffer)) > 0) {
+                      contents = contents + new String(buffer,0,lengthRead);
+                  }
+  - offset: 673
+    length: 43
+    placeholder_text: "/* TODO \nPut the correct Exception here. */"
+    initial_state:
+      length: 43
+      offset: 673
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: IOException e
+  - offset: 806
+    length: 71
+    placeholder_text: "/* TODO \nReturn a Databse object initialized with the contents\
+      \ read. */"
+    initial_state:
+      length: 71
+      offset: 806
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' new Database(contents'
+  text: "import java.io.*;\n\npublic class Task {\n    public static void main(String[]\
+    \ ar) {\n        Task t = new Task();\n        Database d = t.readCSV(\"./resources/iris-data.csv\"\
+    );\n    }\n\n    public Database readCSV(String filename) {\n        String contents\
+    \ = \"\";\n        try (InputStream in = /* TODO.\nChange what needs to go here\
+    \ to start reading \"filename\" */){\n            byte[] buffer = /* TODO \nCreate\
+    \ a byte array of about 1024 bytes or however many bytes you want. */;\n     \
+    \       int lengthRead;\n            /* TODO \nCreate a while loop to read the\
+    \ contents of the file and put them in the variable \"contents\" declared at the\
+    \ beginning of the method. */\n        } catch (/* TODO \nPut the correct Exception\
+    \ here. */) {\n            e.printStackTrace();\n            System.exit(-1);\n\
+    \        }\n        return/* TODO \nReturn a Databse object initialized with the\
+    \ contents read. */);\n    }\n}\n"
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    public class Tests {
+      @Test
+      public void testSolution() {
+        Task t = new Task();
+        Database d = t.readCSV("test/iris-data.csv");
+        Assert.assertEquals("Data may not be read correctly","4.9",d.getData()[1][0]);
+        Assert.assertEquals("getValue is not working correctly.","2.8",d.getValue("s-width",121));
+      }
+
+      @Test
+      public void testReadingDatabase(){
+        Task t = new Task();
+        Database d = t.readCSV("test/iris-data.csv");
+        Assert.assertEquals("Number of rows not correct",151,d.getNumRows()+1,1);
+        Assert.assertEquals("Column headers not matching. Remember the first row contains the columns","species",d.getColNames()[d.getColNames().length-1]);
+      }
+    }
+  learner_created: false
+- name: src/Database.java
+  visible: true
+  placeholders:
+  - offset: 587
+    length: 128
+    placeholder_text: "/* TODO \nThis constructor should take the contents of a CSV\
+      \ file and initialize the memember variables of the Database class.\n*/"
+    initial_state:
+      length: 128
+      offset: 587
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+              String[] lines = contents.split("\n");
+              this.colNames = lines[0].split(",");
+              this.data = new String[lines.length - 1][this.colNames.length];
+              for (int i = 1; i < lines.length; i++) {
+                  this.data[i - 1] = lines[i].split(",");
+              }
+              this.numRows = lines.length - 1;
+  - offset: 778
+    length: 104
+    placeholder_text: |-
+      /* TODO */
+      This method should return the data contained on row "row" and the column matching  @columname
+    initial_state:
+      length: 104
+      offset: 778
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+              int col = 0;
+              for(col=0;col<this.colNames.length && !(this.colNames[col].equals(columnName));col++);
+              return this.data[row][col];
+  text: "public class Database {\n    private String[] colNames;\n    private int\
+    \ numRows;\n    private String[][] data;\n\n    public String[] getColNames()\
+    \ {\n        return colNames;\n    }\n\n    public void setColNames(String[] colNames)\
+    \ {\n        this.colNames = colNames;\n    }\n\n    public int getNumRows() {\n\
+    \        return numRows;\n    }\n\n    public void setNumRows(int numRows) {\n\
+    \        this.numRows = numRows;\n    }\n\n    public String[][] getData() {\n\
+    \        return data;\n    }\n\n    public void setData(String[][] data) {\n \
+    \       this.data = data;\n    }\n\n    public Database(String contents) {\n/*\
+    \ TODO \nThis constructor should take the contents of a CSV file and initialize\
+    \ the memember variables of the Database class.\n*/\n    }\n\n    public String\
+    \ getValue(String columnName,int row){\n/* TODO */\nThis method should return\
+    \ the data contained on row \"row\" and the column matching  @columname\n    }\n\
+    \n}\n\n\n"
+  learner_created: false
+- name: test/iris-data.csv
+  visible: true
+  learner_created: false
+status: Unchecked
+record: -1

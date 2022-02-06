@@ -1,0 +1,36 @@
+<html>
+
+<h2>Calculator: Full On lambdas</h2>
+
+<p>In this task you will implement a calculator using
+    a lot of lambda expressions.</p>
+
+<p>First, finish coding the <code>DoMath</code> functional
+    interface. It should have one method:<code>compute</code> that takes two
+    <code>Double</code> objects and returns a <code>Double</code> object. (not a <code>double</code>)</p>
+
+<p>Then, the <code>Claculator</code> object is divided in
+    two methods:</p>
+
+<ul>
+    <li><code>toOperation</code> will basically look at the operation sign
+        and return the correct function to apply to any two numbers. For example,
+        if the sign is "+" it should return a function that computes x+y. Do this for all the
+        cases in the switch statement.
+        <div class="hint">
+            Implementing the correct function is basically coding a short-hand implementation of DoMath's compute method
+        </div>
+        </hint></li>
+    <li>For the division case, if the second number is zero, return <code>Double.POSITIVE_INFINITY</code>. Otherwise return x/y.</li>
+    <li>For the default case (i.e. some operation that we have not coded), return a function that simply returns <code>Double.MIN_VALUE</code></li>
+    <li>The <code>compute</code> method should set the <code>calc</code> value to the correct function depending on
+        <code>op</code>. (that is, set <code>calc</code> to the correct implementation of <code>DoMath</code></li>
+    <li>The <code>compute</code> method should then return the result of calling <code>compute</code> from the <code>calc</code> object with the two numbers provided in the parameters.</li>
+    <li>In the <code>Task</code> object you must create a static inner class <code>Triplet</code>.
+        This class must have three generic variables that are <code>public</code>. The constructor of <code>Triplet</code>
+        should initialize these variables.</li>
+    <li>Also, in the <code>Task</code> object, in the <code>main</code> method, add a few operations (division and multiplication) just to check they work ok.</li>
+    <li>Lastly, in the <code>Task</code>'s <code>main</code>, where the <code>forEach</code> method is called, implement a lambda to append the result of the <code>compute</code> method of the <code>Calculator c</code> object with the elements of a <code>Triplet</code>
+        as parameters, to the member variable <code>result</code>.</li>
+</ul>
+</html>

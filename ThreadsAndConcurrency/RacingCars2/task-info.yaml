@@ -1,0 +1,178 @@
+type: edu
+files:
+- name: src/Task.java
+  visible: true
+  placeholders:
+  - offset: 109
+    length: 57
+    placeholder_text: |-
+      /* TODO
+      Declare a static ExecutorService named service */
+    initial_state:
+      length: 57
+      offset: 109
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: static ExecutorService service;
+  - offset: 315
+    length: 36
+    placeholder_text: "/* TODO \nCreate a Runnable with c1*/"
+    initial_state:
+      length: 36
+      offset: 315
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: new Racer(c1);
+  - offset: 378
+    length: 36
+    placeholder_text: "/* TODO \nCreate a Runnable with c2*/"
+    initial_state:
+      length: 36
+      offset: 378
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: new Racer(c2)
+  - offset: 457
+    length: 104
+    placeholder_text: |-
+      /* TODO
+      Submit both runnables to the ExecutorService and then request the ExecutorService to shutdown */
+    initial_state:
+      length: 104
+      offset: 457
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      service.submit(racer1);
+              service.submit(racer2);
+              service.shutdown();
+  - offset: 569
+    length: 136
+    placeholder_text: |-
+      /* TODO
+      Implement the initExecutorService method. This has to initialize service to a new FixedThreadPool with a minimum of 3 threads */
+    initial_state:
+      length: 136
+      offset: 569
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+          public static void initExecutorService(){
+              service = Executors.newFixedThreadPool(3);
+  text: "import java.util.concurrent.ExecutorService;\nimport java.util.concurrent.Executors;\n\
+    \npublic class Task {\n    /* TODO\nDeclare a static ExecutorService named service\
+    \ */\n    public static void main(String[] args){\n        Car c1 = new Car(\"\
+    Kona\",250);\n        Car c2 = new Car(\"Ioniq\",220);\n\n        Runnable racer1\
+    \ = /* TODO \nCreate a Runnable with c1*/\n        Runnable racer2 = /* TODO \n\
+    Create a Runnable with c2*/;\n\n        initExecutorService();\n\n        /* TODO\n\
+    Submit both runnables to the ExecutorService and then request the ExecutorService\
+    \ to shutdown */\n    }\n\n/* TODO\nImplement the initExecutorService method.\
+    \ This has to initialize service to a new FixedThreadPool with a minimum of 3\
+    \ threads */\n    }\n}"
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.util.concurrent.ThreadPoolExecutor;
+    import java.util.concurrent.TimeUnit;
+
+    public class Tests {
+      @Test
+      public void testExecutors() {
+        Task.initExecutorService();
+        Assert.assertTrue("Are you instantiating a FixedThreadPool?",Task.service instanceof ThreadPoolExecutor);
+        Task.main(null);
+        try {
+          Task.service.awaitTermination(3, TimeUnit.SECONDS);
+        }catch(Exception e){
+          Assert.fail("Your thread pool is throwing an exception.");
+        }
+      }
+    }
+  learner_created: false
+- name: src/Racer.java
+  visible: true
+  placeholders:
+  - offset: 19
+    length: 57
+    placeholder_text: "/* TODO \nThis class is exactly as the Racer from Task 1*/"
+    initial_state:
+      length: 57
+      offset: 19
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      implements Runnable{
+          Car c;
+          int distance = 1000;
+
+          public Racer(Car c){
+              this.c=c;
+          }
+          @Override
+          public void run() {
+              while (c.odometer<distance)
+                  if (c.miles==0){
+                      System.out.println(c+"...Charging");
+                      c.charge();
+                      try {
+                          Thread.sleep((int) c.miles);
+                      }catch(InterruptedException e){
+                          e.printStackTrace();
+                      }
+                  } else {
+                      c.move(1);
+                  }
+              System.out.println("Finish:"+c);
+          }
+  text: "public class Racer /* TODO \nThis class is exactly as the Racer from Task\
+    \ 1*/\n}\n"
+  learner_created: false
+- name: src/Car.java
+  visible: true
+  placeholders:
+  - offset: 126
+    length: 66
+    placeholder_text: "/* TODO \nExact same methods and constructor as the Car in\
+      \ task 1*/"
+    initial_state:
+      length: 66
+      offset: 126
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2
+         public Car(String name,double miles){
+              this.miles = miles;
+              odometer = 0;
+              this.name = name;
+              this.maxMiles = miles;
+          }
+
+          public void move(double miles){
+              this.miles = this.miles>0?this.miles - miles:0;
+              this.odometer+=miles;
+          }
+
+          public void charge(){
+              this.miles = maxMiles;
+          }
+
+          public String toString(){
+              return name+": odo:"+odometer+" - miles left:"+miles;
+          }
+  text: "public class Car {\n    public double miles;\n    public double odometer;\n\
+    \    public String name;\n    public double maxMiles;\n\n /* TODO \nExact same\
+    \ methods and constructor as the Car in task 1*/\n}\n"
+  learner_created: false
+status: Unchecked
+record: -1

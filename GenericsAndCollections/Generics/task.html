@@ -1,0 +1,81 @@
+<html>
+<p>In this task we have a <code>Bag</code> class.
+    This is a virtual "bag" of objects. In a bag, if you
+    put fruits, say, three oranges and two apples, when you draw
+    an object randomly, you have 3/5 chances of drawing an orange.
+</p>
+<p>So. this <code>Bag</code> is a kind of storage
+    where you put elements, but draw them blindly and
+    they are drawn randomly with a certain probability</p>
+
+<p>You can also use a bag to store things you want to
+    draw at random, like names, numbers in a raffle,
+    or bingo chips when playing Bingo. In this case,
+    every object in the bag has the same probability
+    of being drawn</p>
+<h3>BagException</h3>
+<p>Create a class that inherits from <code>Exception</code>
+    and to which you can pass a message (<code>String</code>) in the
+    constructor. </p>
+<p>That's all the direction you get. This is a
+    very simple class, and because you are the master
+    of inheritance and polymorphism, you do not need
+    further directions ;)</p>
+<h3>Bag</h3>
+<p>In the <code>Bag</code> class you will implement
+    the kind of bag we talked about. First, the <code>Bag</code>
+    class should specify <strong>one</strong> generic type <code>T</code>.
+<ul>
+    <li>The constructor for the <code>Bag</code> class
+        will take no parameters. It just initializes an
+        underlying <code>ArrayList</code> that will hold
+        the elements of the <code>Bag</code>'s generic type.</li>
+    <li><code>Bag</code> should have a method <code>add</code>
+        that takes in an object of the generic type and puts it in
+        the <code>ArrayList</code>. Now, <code>Bag</code> does not
+        accept <code>null</code> objects, so a <code>null</code>
+        is passed, a <code>BagException</code> is thrown with the message
+        "Cannot add null to a Bag"</li>
+    <li><code>Bag</code> also overloads the <code>add</code>
+        method to receive an object of the generic type and
+        a number between 0 and 1 which indicates the probability of that element.
+        This method will look at
+        the number of elements in the <code>Bag</code>
+        and insert the new element with the probability
+        specified. You need to complete this method.
+        If the probability is outside the 0-1 range, a
+        <code>BagException</code> should be thrown with a message saying
+        that "Probability should be between 0 and 1"</li>
+    <li><code>drawOne</code> should get a random index
+        between zero and the size of <code>objects</code> and
+        return the element at that index.</li>
+    <li><code>drawMany</code> should return an <code>ArrayList</code>
+        of the generic type. This method takes in one parameter:
+        an <code>int</code> that tells the method how many
+        times it should draw an element from the <code>Bag</code>.
+        This method should draw that number of elements and store them
+        in the <code>ArrayList</code> to be returned.</li>
+
+</ul>
+
+<h3>BingoChip</h3>
+This class represents a Chip of a Bingo game. Usually
+they are comprised of a letter (for the column) and
+a number. However, they can be many things. Some games
+have a "dummy" chip that goes in the center. That chip
+has a letter for the column and some word indicating that
+it is the center piece. So, a Bingo chip does not necessarily
+have a <code>char</code> and an <code>int</code>. It can have
+any kind of two objects... yes. I know, generics.
+<ul>
+    <li>If you want to know how this class is used, take a look at <code>Task</code>.
+        That can come in handy, as this class is purposely lacking in its
+        specification. </li>
+    <li>This class has two variables of generic types.</li>
+    <li>The constructor takes in two parameters to set these two variables.</li>
+    <li>This class also overrides the <code>toString</code>
+        method to print the chip. It does so by outputting the word
+        "Chip:" next to the string representation of the two objects
+        separated by a hyphe. For example:Chip:B-12, or Chip:N-Center </li>
+</ul>
+</html>

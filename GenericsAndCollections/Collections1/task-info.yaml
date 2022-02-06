@@ -1,0 +1,324 @@
+type: edu
+files:
+- name: src/Task.java
+  visible: true
+  placeholders:
+  - offset: 510
+    length: 66
+    placeholder_text: |-
+      /* TODO
+      Compete a for loop that prints every card
+      in the deck d */
+    initial_state:
+      length: 66
+      offset: 510
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      c : d)
+                  System.out.print(c+", ");
+  - offset: 640
+    length: 87
+    placeholder_text: "/* TODO \nThis should compute the sum of values of the cards\
+      \ in an ArrayList of cards.*/"
+    initial_state:
+      length: 87
+      offset: 640
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+             int sum = 0;
+              for(Card c:hand){
+                  if(c.getValue().equals("Ace"))
+                      sum++;
+                  else if (c.getValue().equals("Jack"))
+                      sum+=11;
+                  else if (c.getValue().equals("Queen"))
+                      sum+=12;
+                  else if (c.getValue().equals("King"))
+                      sum+=13;
+                  else
+                      sum+=Integer.valueOf(c.getValue().toString());
+              }
+              return sum;
+  text: "import java.util.ArrayList;\n\npublic class Task {\n    public static void\
+    \ main(String[] args){\n        Deck d = new Deck();\n        // Draw some random\
+    \ cards:\n        System.out.println(d.dealCard());\n        System.out.println(d.dealCard());\n\
+    \n        ArrayList<Card> hand = new ArrayList<>();\n        hand.add(d.dealCard());\n\
+    \        hand.add(d.dealCard());\n        hand.add(d.dealCard());\n\n        System.out.println(\"\
+    Hand is:\"+hand);\n        System.out.println(\"Cards add:\"+addCards(hand));\n\
+    \n\n        for(Card /* TODO\nCompete a for loop that prints every card\nin the\
+    \ deck d */\n\n    }\n\n    public static int addCards(ArrayList<Card> hand){\n\
+    \ /* TODO \nThis should compute the sum of values of the cards in an ArrayList\
+    \ of cards.*/\n    }\n}"
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Test;
+
+    import java.util.ArrayList;
+    import java.util.Iterator;
+
+    public class Tests {
+      @Test
+      public void testCard() {
+        Card<Integer,String> c1 = new Card<>(10,"Spades");
+        Card<String,String> c2 = new Card<>("10","Spades");
+        Assert.assertEquals("Your toString method may be wrong, or you are not initializing a Card correctly",c1.toString(),c2.toString());
+        Assert.assertEquals("Your suit getter may not be working correctly","Spades",c1.getSuit());
+        Assert.assertEquals("Your value getter may not be correct",(Integer)10,c1.getValue());
+      }
+
+      @Test
+      public void testDeck(){
+        Deck d = new Deck();
+        Assert.assertEquals("Are you inserting all possible cards in a Deck?",52,d.size());
+        Card c1 = d.dealCard();
+        Card c2 = d.dealCard();
+        int cardsDealt = 2;
+        while(!(c1.getValue() instanceof Integer)) {
+          c1 = d.dealCard();
+          cardsDealt++;
+        }
+        while(!(c2.getValue() instanceof Integer)) {
+          c2 = d.dealCard();
+          cardsDealt++;
+        }
+        Assert.assertTrue("Are you sure your cards are randomly drawn? This check can come as 'incorrect'. Simply try running this check again. If it never shows as 'correct' then there is a problem",Math.abs((Integer)c1.getValue()-(Integer)c2.getValue())>1);
+        Assert.assertEquals("Are you sure you are removing the cards dealt from the deck?",52-cardsDealt,d.size());
+
+        Deck d2 = new Deck();
+        int i=d2.size();
+        int fc = 0;
+        int nc = 0;
+        while(i>0){
+          if(d2.dealCard().getValue() instanceof Integer)
+            nc++;
+          else
+            fc++;
+          i--;
+        }
+
+        Assert.assertTrue("Are you sure you have all kinds of cards, like a 3 of hearts or an Ace of Hearts, or a Jack of Diamonds..",fc==16 && nc==36);
+
+      }
+
+      @Test
+      public void testDeckIterator(){
+        Deck d1 = new Deck();
+        DeckIterator it1 = new DeckIterator(d1);
+
+        Assert.assertTrue("Is your deck iterable?",d1 instanceof Iterable);
+        Assert.assertTrue("Is your DeckIterator implementing the Iterator interface?",it1 instanceof Iterator);
+        Assert.assertEquals("Is your iterator method returning an iterator over the deck?",it1.d,((DeckIterator)d1.iterator()).d);
+        int i=0;
+        for(Card c:d1){
+          i++;
+        }
+        Assert.assertEquals("Are you sure your next and hasNext work correctly? I could not iterate through all the cards",52,i);
+      }
+
+      @Test
+      public void testHand(){
+        ArrayList<Card> hand = new ArrayList<>();
+        hand.add(new Card<String,String>("Ace","Hearts"));
+        hand.add(new Card<String,String>("Queen","Spades"));
+        hand.add(new Card<String,String>("Jack","Hearts"));
+        hand.add(new Card<String,String>("King","Clubs"));
+        hand.add(new Card<Integer,String>(4,"Clubs"));
+        int val = Task.addCards(hand);
+        Assert.assertEquals("Make sure your addCards method works correctly (hint: Capitalize the first letter of the face cards)",41,val);
+      }
+    }
+  learner_created: false
+- name: src/Card.java
+  visible: true
+  text: |
+    public class Card <V,S>{
+        private V value;
+        private S suit;
+        public Card(V value, S suit){
+            this.value = value;
+            this.suit = suit;
+        }
+
+        public V getValue() {
+            return value;
+        }
+
+        public void setValue(V value) {
+            this.value = value;
+        }
+
+        public S getSuit() {
+            return suit;
+        }
+
+        public void setSuit(S suit) {
+            this.suit = suit;
+        }
+
+        public String toString(){
+            return value+" of "+suit;
+        }
+    }
+  learner_created: false
+- name: src/Deck.java
+  visible: true
+  placeholders:
+  - offset: 243
+    length: 133
+    placeholder_text: "/* TODO \nThis constructor initializes the deck variable with\n\
+      all the cards of a deck, except a joker.\nThe suits array may help you.*/"
+    initial_state:
+      length: 133
+      offset: 243
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2
+              this.deck=new LinkedList<Card>();
+              for (String suit : suits) {
+                  for (int i = 2; i <= 10; i++)
+                      deck.add(new Card<Integer, String>(i, suit));
+                  deck.add(new Card<String, String>("Ace", suit));
+                  deck.add(new Card<String, String>("Jack", suit));
+                  deck.add(new Card<String, String>("Queen", suit));
+                  deck.add(new Card<String, String>("King", suit));
+  - offset: 421
+    length: 177
+    placeholder_text: |-
+      /* TODO
+      Code this. It is almost EXACTLY as the  method to draw one object
+      from the bag in the previous task. The difference is that this method
+      REMOVES the card from the deck */
+    initial_state:
+      length: 177
+      offset: 421
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+              int idx = (int)Math.round(Math.random()*(deck.size()-1));
+              if (deck.size()>0)
+                  return deck.remove(idx);
+              else
+                  return null;
+  - offset: 628
+    length: 67
+    placeholder_text: '/* TODO: Return the size of the deck (number of cards left
+      in it)*/'
+    initial_state:
+      length: 67
+      offset: 628
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+
+              return this.deck.size();
+  - offset: 762
+    length: 75
+    placeholder_text: "/* TODO \nReturn a new DeckIterator with this instance in the\
+      \ constructor.*/"
+    initial_state:
+      length: 75
+      offset: 762
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' return new DeckIterator<Card>(this);'
+  text: "import java.util.Iterator;\nimport java.util.LinkedList;\nimport java.util.List;\n\
+    \npublic class Deck implements Iterable<Card>{\n    private List<Card> deck;\n\
+    \    private String[] suits = {\"Hearts\",\"Clubs\",\"Diamonds\",\"Spades\"};\n\
+    \    public Deck() {\n/* TODO \nThis constructor initializes the deck variable\
+    \ with\nall the cards of a deck, except a joker.\nThe suits array may help you.*/\
+    \        }\n    }\n\n    public Card dealCard(){\n/* TODO\nCode this. It is almost\
+    \ EXACTLY as the  method to draw one object\nfrom the bag in the previous task.\
+    \ The difference is that this method\nREMOVES the card from the deck */\n    }\n\
+    \n    public int size(){/* TODO: Return the size of the deck (number of cards\
+    \ left in it)*/\n    }\n    @Override\n    public Iterator<Card> iterator() {\n\
+    \       /* TODO \nReturn a new DeckIterator with this instance in the constructor.*/\n\
+    \    }\n}\n"
+  learner_created: false
+- name: src/DeckIterator.java
+  visible: true
+  placeholders:
+  - offset: 57
+    length: 43
+    placeholder_text: |-
+      /* TODO
+      Implement the Iterator interface */
+    initial_state:
+      length: 43
+      offset: 57
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: implements Iterator<E>
+  - offset: 148
+    length: 36
+    placeholder_text: |-
+      /* TODO
+      initialize the variable d */
+    initial_state:
+      length: 36
+      offset: 148
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '        this.d = d;'
+  - offset: 244
+    length: 61
+    placeholder_text: |-
+      /* TODO
+      Return true if there are elements left in the Deck */
+    initial_state:
+      length: 61
+      offset: 244
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ' return d.size()>0;'
+  - offset: 357
+    length: 37
+    placeholder_text: |-
+      /* TODO
+      Deal a card and return it. */
+    initial_state:
+      length: 37
+      offset: 357
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: return (E) this.d.dealCard();
+  text: |
+    import java.util.Iterator;
+
+    public class DeckIterator<E> /* TODO
+    Implement the Iterator interface */ {
+        Deck d;
+        public DeckIterator(Deck d){
+    /* TODO
+    initialize the variable d */
+        }
+
+        @Override
+        public boolean hasNext() {
+           /* TODO
+    Return true if there are elements left in the Deck */
+        }
+
+        @Override
+        public E next() {
+            /* TODO
+    Deal a card and return it. */
+        }
+    }
+  learner_created: false
+status: Unchecked
+record: -1

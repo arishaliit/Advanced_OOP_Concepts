@@ -1,0 +1,80 @@
+<html>
+<h1>An Webpage editor.</h1>
+<p>This task will have you create a very simple web page editor
+    with an auto-save feature.</p>
+<p>You type your webpage line by line. If a line begins with <code>t:</code> it
+    indicates a title. Otherwise it is a normal line.</p>
+<p> The webpage will aauto-save every 10 seconds.</p>
+<h3>WebPage</h3>
+<ul>
+    <li>In the constructor, initialize the <code>dom</code> to an empty <code>List</code> as you see fit.</li>
+    <li><code>addTitle</code> will add an element to the
+        <code>dom</code> that consists of the parameter surrounded
+        by &lt;h1&gt; and &lt;/h1&gt;</li>
+    <li>Similarly, implement <code>addParagraph</code> which will do the same as title, but the tags
+        are &lt;p&gt; and &lt;/p&gt;</li>
+    <li>The <code>toString</code> method is missing the <code>dom</code> elements. Please add them to <code>html</code></li>
+    <li><code>save</code> will save the string representation of this webpage to the filename provided.<<div class="hint">
+        You already have a method that provides a String representation of this webpage. Also, using a FileWriter makes this a very short method.
+    </div>
+    </li>
+</ul>
+
+<h3>WebPageEditor</h3>
+<ul>
+    <li>Implement the constructor: Initialize <code>wp</code> to an empty webpage, and <code>filename</code> to the value passed. </li>
+    <li>In the <code>start</code> method:
+        <ul>
+            <li>Using <code>Executor</code>s, instantiate a new <code>SingleThreadedScheduledExecutor</code></li>
+            <li>Schedule at a fixed rate a Runnable that executes <code>checkSave</code>.
+                if checkSave is true it will print "Saved", This has to
+                be scheduled to start in 10 seconds and repeat every 10 seconds
+                <<div class="hint">
+                    Check the Executor api or the slides to see how you can
+                    schedule at a fixed rate. Also, the runnable can be
+                    implemented with the <code>()->{ }</code> notation.
+                </div>
+            </li>
+            <li> The next section creates a <code>Scanner</code> to read the
+                user input line by line (the actual text editor). In the <code>while</code> loop
+                you have to read a line, and If the user types <code>"quit"</code> the loop ends.
+                If the user input starts with <code>t:</code> you add a title to the webpage.
+                Otherwise, you add a paragraph.</li>
+            <li>Make sure that when the while loop ends, the <code>service</code> is
+                shutdown NOW.</li>
+            <li>As an example, if you were to type: <code>t:Title</code>, and <code>This is a java program</code> in the second line, and then <code>quit</code> after 10 seconds,
+                you should have  a file with the contents.
+                </br>
+                &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;</br>
+                &lt;h1&gt;Title&lt;/h1&gt;</br>
+                &lt;p&gt;This is a java program&lt;/p&gt;</br>
+                &lt;/body&gt;&lt;/html&gt;</br>
+            </li>
+        </ul></li>
+    <li>
+        <code>checkSave</code> does the following: If the
+        string representation of <code>wp</code>
+        is equal to its last String representation
+        (stored in <code>tmp</code>) the method returns false.
+        Otherwise, it saves the string representation of this
+        webpage to the given filename (using <code>WebPage</code> methods),
+        and <code>tmp</code> updates to the string representation
+        that you just saved. Then, the method returns <code>true</code>.
+    </li>
+</ul>
+
+<h3>Task</h3>
+<ul>
+    <li>You need to declare a static member variable called <code>service</code> of type <code>ExecutorService</code></li>
+    <li>In <code>main</code>, set <code>racer1</code> and <code>racer2</code> to be <code>Racer</code> objects with each <code>Car</code> object</li>
+    <li>
+        You also need to create and implement the <code>initExecutorService</code>. This method should
+        initialize <code>service</code> creating a new <code>FixedThreadPool</code> with a minimum of 3 threads.
+    </li>
+    <li>In <code>main</code>, submit both Runnables to the <code>service</code> and then request
+        a shutdown of the service. <div class="hint">
+            Requesting a shutdown will finish executing the threads in the pool and then stop the pool and finish the program.
+        </div>
+    </li>
+</ul>
+</html>

@@ -1,0 +1,150 @@
+type: edu
+files:
+- name: src/Task.java
+  visible: true
+  placeholders:
+  - offset: 1100
+    length: 150
+    placeholder_text: |-
+      /* TODO
+      Create a counter of String objects called words., and make it work for the words in the String text above. That way, the rest will compile. */
+    initial_state:
+      length: 150
+      offset: 1100
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '  Counter<String> words = new Counter<>(text.split("
+      ")'
+  text: |-
+    public class Task {
+        public static void main(String[] args){
+            String text = "It would be nice if we could write a single sort method that could sort the elements in an Integer array, a String array, or an array of any type that supports ordering. "+
+                    "Java Generic methods and generic classes enable programmers to specify, with a single method declaration, a set of related methods, or with a single class declaration, a set of related types, respectively. "+
+                    "Generics also provide compile-time type safety that allows programmers to catch invalid types at compile time. "+
+                    "Using Java Generic concept, we might write a generic method for sorting an array of objects, then invoke the generic method with Integer arrays, Double arrays, String arrays and so on, to sort the array elements";
+            Integer[] numbers = {1,3,4,2,4,5,7,4,8,9,4,7,4};
+            Counter<Integer> c = new Counter<>(numbers);
+            System.out.println("Most frequent:"+c.mostFrequent());
+            System.out.println("With count "+c.getCount(c.mostFrequent()));
+
+          /* TODO
+    Create a counter of String objects called words., and make it work for the words in the String text above. That way, the rest will compile. */);
+            System.out.println("Most frequent word:"+words.mostFrequent());
+            System.out.println("With "+words.getCount(words.mostFrequent())+" occurrences");
+            System.out.println("The word sort appears "+words.getCount("sort")+" times");
+        }
+    }
+  learner_created: false
+- name: test/Tests.java
+  visible: false
+  text: |-
+    import org.junit.Assert;
+    import org.junit.Before;
+    import org.junit.Test;
+
+    public class Tests {
+      private String[] words;
+      private Counter<String> c;
+
+      @Before
+      public void setupBefore(){
+        String[] p = {"the","cat","in","the","hat"};
+        words = p;
+        c = new Counter<>(words);
+      }
+      @Test
+      public void testCount() {
+        Assert.assertEquals("Are you sure your get count is working correctly?",(Integer)2,c.getCount("the"));
+      }
+
+      @Test
+      public void testMostFrequent(){
+        Assert.assertEquals("Is your most frequent element correctly computed?","the",c.mostFrequent());
+      }
+
+      @Test
+      public void testUniqueWords(){
+        Assert.assertEquals("Are you sure you are counting all the unique words?",4,c.getSize());
+      }
+    }
+  learner_created: false
+- name: src/Counter.java
+  visible: true
+  placeholders:
+  - offset: 94
+    length: 95
+    placeholder_text: "/* TODO \nThe HashMap should accomodate a generic class for\
+      \ the keys and Integer for the value*/"
+    initial_state:
+      length: 95
+      offset: 94
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: <E,Integer>
+  - offset: 231
+    length: 202
+    placeholder_text: |-
+      /* TODO
+      Loop through the elements of "things" and use the HashMap "counts"
+      to store the elements of things as keys, and the number of times they
+      appear in the array as values. Check the instructions. */
+    initial_state:
+      length: 202
+      offset: 231
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: "        counts = new HashMap<>();\n        for(E element:things){\n\
+      \            if(counts.containsKey(element)) {\n                counts.put(element,counts.get(element)+1);\n\
+      \            } else {\n                counts.put(element,1);\n            }\n\
+      \       "
+  - offset: 489
+    length: 143
+    placeholder_text: "/* TODO \nThis just returns the specific count for an element.\
+      \ It is a wrapper\nfor a getting the value of the HashMap given the key \"element\"\
+      \ */"
+    initial_state:
+      length: 143
+      offset: 489
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '  return counts.get(element'
+  - offset: 737
+    length: 55
+    placeholder_text: "/* TODO \nReturns the most frequent key in the HashMap*/"
+    initial_state:
+      length: 55
+      offset: 737
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      {
+              int max=0;
+              E element=null;
+              Set<E> keys = counts.keySet();
+              for(E key:keys){
+                  Integer v = counts.get(key);
+                  if (v>max){
+                      max=v;
+                      element=key;
+                  }
+              }
+              return elemen
+  text: "import java.util.HashMap;\nimport java.util.Set;\n\npublic class Counter<E>\
+    \ {\n    private HashMap/* TODO \nThe HashMap should accomodate a generic class\
+    \ for the keys and Integer for the value*/ counts;\n\n    public Counter(E[] things){\n\
+    /* TODO\nLoop through the elements of \"things\" and use the HashMap \"counts\"\
+    \nto store the elements of things as keys, and the number of times they\nappear\
+    \ in the array as values. Check the instructions. */ }\n    }\n\n    public Integer\
+    \ getCount(E element){\n      /* TODO \nThis just returns the specific count for\
+    \ an element. It is a wrapper\nfor a getting the value of the HashMap given the\
+    \ key \"element\" */);\n    }\n\n    public int getSize(){\n        return this.counts.size();\n\
+    \    }\n\n    public E mostFrequent()/* TODO \nReturns the most frequent key in\
+    \ the HashMap*/t;\n    }\n}\n"
+  learner_created: false
+status: Unchecked
+record: -1

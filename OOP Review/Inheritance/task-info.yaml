@@ -11,7 +11,7 @@ files:
       length: 105
       offset: 243
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
     encrypted_possible_answer: public Shape(String name){this.setName(name);}
   text: |

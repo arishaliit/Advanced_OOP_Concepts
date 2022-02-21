@@ -23,7 +23,7 @@ files:
       length: 83
       offset: 385
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
     encrypted_possible_answer: new byte[1024]
   - offset: 510

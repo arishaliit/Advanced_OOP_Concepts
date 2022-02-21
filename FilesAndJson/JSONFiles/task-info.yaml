@@ -3,29 +3,29 @@ files:
 - name: src/Task.java
   visible: true
   placeholders:
-  - offset: 570
-    length: 122
+  - offset: 989
+    length: 134
     placeholder_text: '/* TODO: create a JSON object with the contents of  "filename".
       You can use the method below to help you read the file. */'
     initial_state:
       length: 122
       offset: 570
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       lename) {
               JsonObject obj = (JsonObject) Jsoner.deserialize(readFile(filename), new JsonObject());
-  - offset: 700
-    length: 50
+  - offset: 1212
+    length: 0
     placeholder_text: /* Complete this using the parameter passed to this method.
       */
     initial_state:
       length: 50
       offset: 700
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2-
        return obj;
           }
@@ -42,26 +42,26 @@ files:
               } catch(IOException e) {
                   e.printStackTrace();
                   Syst
-  - offset: 700
-    length: 50
+  - offset: 1212
+    length: 0
     placeholder_text: /* Put in code to read the file line by line. */
     initial_state:
       length: 50
       offset: 700
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: /* Complete this using the parameter passed to this
       method. */
-  - offset: 700
-    length: 50
+  - offset: 1212
+    length: 0
     placeholder_text: /* Put in the variable that should be returned. */
     initial_state:
       length: 50
       offset: 700
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: /* Put in code to read the file line by line. */
   text: |-
     import com.github.cliftonlabs.json_simple.JsonObject;
@@ -153,36 +153,36 @@ files:
 - name: src/Database.java
   visible: true
   placeholders:
-  - offset: 136
-    length: 83
+  - offset: 166
+    length: 16
     placeholder_text: "/* TODO \nDeclare a member variable that can \nbe EASILY set\
       \ from the constructor. */"
     initial_state:
       length: 83
       offset: 136
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: public JsonObject data;
-  - offset: 267
-    length: 50
+  - offset: 230
+    length: 17
     placeholder_text: "/* TODO \nset the memebr variable declared above.*/"
     initial_state:
       length: 50
       offset: 267
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: this.data = data;
-  - offset: 383
-    length: 46
+  - offset: 313
+    length: 303
     placeholder_text: "/* TODO \nComplete this method as specified. */"
     initial_state:
       length: 46
       offset: 383
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       JsonArray rests = (JsonArray)this.data.get("restaurants");
               int i=0;
@@ -193,16 +193,16 @@ files:
                   return null;
               else
                   return result;
-  - offset: 491
-    length: 84
+  - offset: 678
+    length: 408
     placeholder_text: "/* TODO \nComplete this method as specified.\n The previous\
       \ method may be of help. \n*/"
     initial_state:
       length: 84
       offset: 491
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       JsonObject result = getRestaurant(name);
               JsonArray reviews = (JsonArray) result.get("reviews");
@@ -616,5 +616,8 @@ files:
       }]
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 07 Mar 2022 02:15:56 UTC
 record: -1

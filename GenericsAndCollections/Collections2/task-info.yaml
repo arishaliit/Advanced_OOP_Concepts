@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 1100
-    length: 150
+    length: 59
     placeholder_text: |-
       /* TODO
       Create a counter of String objects called words., and make it work for the words in the String text above. That way, the rest will compile. */
@@ -12,8 +12,8 @@ files:
       length: 150
       offset: 1100
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: '  Counter<String> words = new Counter<>(text.split("
       ")'
   text: |-
@@ -72,19 +72,19 @@ files:
 - name: src/Counter.java
   visible: true
   placeholders:
-  - offset: 94
-    length: 95
+  - offset: 116
+    length: 38
     placeholder_text: "/* TODO \nThe HashMap should accomodate a generic class for\
       \ the keys and Integer for the value*/"
     initial_state:
       length: 95
       offset: 94
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: <E,Integer>
-  - offset: 231
-    length: 202
+  - offset: 189
+    length: 0
     placeholder_text: |-
       /* TODO
       Loop through the elements of "things" and use the HashMap "counts"
@@ -94,14 +94,14 @@ files:
       length: 202
       offset: 231
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: "        counts = new HashMap<>();\n        for(E element:things){\n\
       \            if(counts.containsKey(element)) {\n                counts.put(element,counts.get(element)+1);\n\
       \            } else {\n                counts.put(element,1);\n            }\n\
       \       "
-  - offset: 489
-    length: 143
+  - offset: 408
+    length: 25
     placeholder_text: "/* TODO \nThis just returns the specific count for an element.\
       \ It is a wrapper\nfor a getting the value of the HashMap given the key \"element\"\
       \ */"
@@ -109,18 +109,18 @@ files:
       length: 143
       offset: 489
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: '  return counts.get(element'
-  - offset: 737
-    length: 55
+  - offset: 541
+    length: 242
     placeholder_text: "/* TODO \nReturns the most frequent key in the HashMap*/"
     initial_state:
       length: 55
       offset: 737
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       {
               int max=0;
@@ -146,5 +146,8 @@ files:
     \    }\n\n    public E mostFrequent()/* TODO \nReturns the most frequent key in\
     \ the HashMap*/t;\n    }\n}\n"
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 21 Feb 2022 14:57:44 UTC
 record: -1

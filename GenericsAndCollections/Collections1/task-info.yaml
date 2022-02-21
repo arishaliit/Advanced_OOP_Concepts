@@ -3,8 +3,8 @@ files:
 - name: src/Task.java
   visible: true
   placeholders:
-  - offset: 510
-    length: 66
+  - offset: 504
+    length: 63
     placeholder_text: |-
       /* TODO
       Compete a for loop that prints every card
@@ -13,21 +13,21 @@ files:
       length: 66
       offset: 510
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       c : d)
                   System.out.print(c+", ");
-  - offset: 640
-    length: 87
+  - offset: 630
+    length: 516
     placeholder_text: "/* TODO \nThis should compute the sum of values of the cards\
       \ in an ArrayList of cards.*/"
     initial_state:
       length: 87
       offset: 640
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2-
              int sum = 0;
               for(Card c:hand){
@@ -170,16 +170,16 @@ files:
 - name: src/Deck.java
   visible: true
   placeholders:
-  - offset: 243
-    length: 133
+  - offset: 306
+    length: 819
     placeholder_text: "/* TODO \nThis constructor initializes the deck variable with\n\
       all the cards of a deck, except a joker.\nThe suits array may help you.*/"
     initial_state:
       length: 133
       offset: 243
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2
               this.deck=new LinkedList<Card>();
               for (String suit : suits) {
@@ -189,8 +189,8 @@ files:
                   deck.add(new Card<String, String>("Jack", suit));
                   deck.add(new Card<String, String>("Queen", suit));
                   deck.add(new Card<String, String>("King", suit));
-  - offset: 421
-    length: 177
+  - offset: 1161
+    length: 0
     placeholder_text: |-
       /* TODO
       Code this. It is almost EXACTLY as the  method to draw one object
@@ -200,16 +200,16 @@ files:
       length: 177
       offset: 421
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2-
               int idx = (int)Math.round(Math.random()*(deck.size()-1));
               if (deck.size()>0)
                   return deck.remove(idx);
               else
                   return null;
-  - offset: 628
-    length: 67
+  - offset: 1293
+    length: 0
     placeholder_text: '/* TODO: Return the size of the deck (number of cards left
       in it)*/'
     initial_state:
@@ -217,20 +217,20 @@ files:
       offset: 628
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
 
               return this.deck.size();
-  - offset: 762
-    length: 75
+  - offset: 1388
+    length: 30
     placeholder_text: "/* TODO \nReturn a new DeckIterator with this instance in the\
       \ constructor.*/"
     initial_state:
       length: 75
       offset: 762
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: ' return new DeckIterator<Card>(this);'
   text: "import java.util.Iterator;\nimport java.util.LinkedList;\nimport java.util.List;\n\
     \npublic class Deck implements Iterable<Card>{\n    private List<Card> deck;\n\
@@ -249,7 +249,7 @@ files:
   visible: true
   placeholders:
   - offset: 57
-    length: 43
+    length: 22
     placeholder_text: |-
       /* TODO
       Implement the Iterator interface */
@@ -258,10 +258,10 @@ files:
       offset: 57
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: implements Iterator<E>
-  - offset: 148
-    length: 36
+  - offset: 127
+    length: 19
     placeholder_text: |-
       /* TODO
       initialize the variable d */
@@ -269,11 +269,11 @@ files:
       length: 36
       offset: 148
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: '        this.d = d;'
-  - offset: 244
-    length: 61
+  - offset: 206
+    length: 35
     placeholder_text: |-
       /* TODO
       Return true if there are elements left in the Deck */
@@ -281,11 +281,11 @@ files:
       length: 61
       offset: 244
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: ' return d.size()>0;'
-  - offset: 357
-    length: 37
+  - offset: 293
+    length: 24
     placeholder_text: |-
       /* TODO
       Deal a card and return it. */
@@ -293,8 +293,8 @@ files:
       length: 37
       offset: 357
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: return (E) this.d.dealCard();
   text: |
     import java.util.Iterator;
@@ -320,5 +320,8 @@ files:
         }
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 21 Feb 2022 14:57:11 UTC
 record: -1

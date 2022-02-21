@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 470
-    length: 77
+    length: 87
     placeholder_text: |-
       /* TODO */
       Set the tmeperature of bart to 101.2, maggie 100.1, and lisa 100.6
@@ -12,14 +12,14 @@ files:
       length: 77
       offset: 470
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       ((ChildPatient)bart).setTemperature(101.2);
               maggie.setTemperature(100.1);
               lisa.setTemperature(100.6);
-  - offset: 581
-    length: 120
+  - offset: 718
+    length: 140
     placeholder_text: |-
       /* TODO */
       Add the following jobs for homer: Nuclear Engineer, Major and Bar Owner.
@@ -28,15 +28,15 @@ files:
       length: 120
       offset: 581
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       homer.addJob("Nuclear Engineer");
               homer.addJob("Major");
               homer.addJob("Bar Owner");
               marge.addJob("House Keeper");
-  - offset: 771
-    length: 115
+  - offset: 1074
+    length: 297
     placeholder_text: |-
       /* TODO */
       Insert the Simpsons in the Patients' array: in the following order:
@@ -45,8 +45,8 @@ files:
       length: 115
       offset: 771
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       this.patients[0] = bart;
               this.patients[1] = (ChildPatient) lisa;
@@ -188,8 +188,8 @@ files:
 - name: src/Diagnosable.java
   visible: true
   placeholders:
-  - offset: 60
-    length: 95
+  - offset: 253
+    length: 49
     placeholder_text: |-
       /* TODO */
       Declare a hasFever method that reutrns true is the temperature
@@ -198,19 +198,19 @@ files:
       length: 95
       offset: 60
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: '    default boolean hasFever(){return this.getTemperature()>100.4;}'
-  - offset: 238
-    length: 121
+  - offset: 340
+    length: 204
     placeholder_text: "/* TODO */\nDecleare two setters. One for systolic and one\
       \ for diastolic. \nCheck the getters to infer the parameter types."
     initial_state:
       length: 121
       offset: 238
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2-
           void setSystolic(int s);
           void setDiastolic(int d);
@@ -234,16 +234,16 @@ files:
 - name: src/AdultPatient.java
   visible: true
   placeholders:
-  - offset: 54
-    length: 119
+  - offset: 181
+    length: 853
     placeholder_text: "/* TODO */\nImplement the class Adult Patient. \nAn adult patient\
       \ is a Person that is Diagnosable and that is Employable."
     initial_state:
       length: 119
       offset: 54
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2
        extends Person implements Diagnosable,Employable{
           double temperature;
@@ -335,5 +335,8 @@ files:
         }
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 10 Feb 2022 20:50:45 UTC
 record: -1

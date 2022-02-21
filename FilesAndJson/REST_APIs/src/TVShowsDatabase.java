@@ -12,52 +12,58 @@ public class TVShowsDatabase {
 
     String baseUrl = "http://api.tvmaze.com/search/";
 
-Create a method getURLSource that returns a String and gets a URL object as a parameter. It should also throw an exception.
-This method should read the open stream of the url and concatenate it in a String. It should then return that String.
+    public String getURLSource(URL url) throws IOException{
+        // reading from url using scanner
+        Scanner scan = new Scanner(url.openStream());
+        String result="";
+        while (scan.hasNext()) {
+            result += scan.nextLine();
+        }
+        scan.close();
+        return "{\"result\":"+result+"}";
+    }
 
     public JsonObject getShowsByName(String name) throws Exception
     {
         //Getting the things ready to connect to the web
         URL url = new URL(baseUrl+"shows?q="+name);
-/* TODO 
-You have to use the url to retrieve the contents of the website. 
-This will be a String, but in JSON format. Use the auxiliary function you created above. */
-        return /* TODO 
-Remember to return a JSON object.*/;
+        String result = getURLSource(url);
+        return Jsoner.deserialize(result, new JsonObject());
     }
 
 
     public JsonObject getPeopleInShows(String query) throws Exception
     {
         //Getting the things ready to connect to the web
-        /* TODO 
-Fill in this data type (Object) */ url = new /* TODO
-Fill in this datatype (Object) */(baseUrl+"people?q="+query);
+        URL url = new URL(baseUrl+"people?q="+query);
 
-       /* TODO
-Read the information coming from the web
- */
-        return /* TODO 
-return the appropriate result.
-*/
+        String result = getURLSource(url);
+        return Jsoner.deserialize(result, new JsonObject());
     }
 
 
     public String formatShowAsString(JsonObject doc){
         String results = "";
-        /* TODO 
-This should return a String with each show in four fields:
-Name:the name of the show
-Link:the link to the show
-rating average:The rating average of teh show, and 
-summary, the summary of the show.*/
+
+        JsonArray shows = (JsonArray) doc.get("result");
+        for(Object r : shows){
+            JsonObject obj = (JsonObject) ((JsonObject) r).get("show");
+            results += "Name:"+obj.get("name")+"\n"
+                    +"Link:"+obj.get("url")+"\n"
+                    +"Premiered:"+obj.get("premiered")+"\n"
+                    + "Rating average:"+((JsonObject)obj.get("rating")).get("average")+"\n"
+                    + "Summary:"+obj.get("summary")+"\n";
+        }
+
         return results;
     }
 
     public void saveShows(String text, String outfile){
-        /* TODO
-Given a String with some text in it, write that text to a file. 
-The name of the file is given in outfile */
+        try(DataOutputStream out = new DataOutputStream(new FileOutputStream(outfile))){
+            out.writeBytes(text);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
 }

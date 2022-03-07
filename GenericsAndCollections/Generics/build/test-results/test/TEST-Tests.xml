@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-02-21T14:58:46" hostname="DESKTOP-AH9F0OG" time="0.006">
+  <properties/>
+  <testcase name="testBagSpecifics" classname="Tests" time="0.004"/>
+  <testcase name="testBingoChip" classname="Tests" time="0.001"/>
+  <testcase name="testBagBasics" classname="Tests" time="0.0"/>
+  <testcase name="testCorrectUseOfException" classname="Tests" time="0.0"/>
+  <system-out><![CDATA[Adding 0
+Adding 1
+Adding 2
+[hello, hello, world, world, hello, hello, hello]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 286
-    length: 68
+    length: 69
     placeholder_text: |-
       /* TODO.
       Change what needs to go here to start reading "filename" */
@@ -13,9 +13,9 @@ files:
       offset: 286
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: new BufferedInputStream(new FileInputStream(filename))
-  - offset: 385
+  - offset: 386
     length: 83
     placeholder_text: "/* TODO \nCreate a byte array of about 1024 bytes or however\
       \ many bytes you want. */"
@@ -24,9 +24,9 @@ files:
       offset: 385
     initialized_from_dependency: false
     selected: true
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: new byte[1024]
-  - offset: 510
+  - offset: 511
     length: 145
     placeholder_text: "/* TODO \nCreate a while loop to read the contents of the file\
       \ and put them in the variable \"contents\" declared at the beginning of the\
@@ -36,12 +36,12 @@ files:
       offset: 510
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       while ((lengthRead = in.read(buffer)) > 0) {
                       contents = contents + new String(buffer,0,lengthRead);
                   }
-  - offset: 673
+  - offset: 674
     length: 43
     placeholder_text: "/* TODO \nPut the correct Exception here. */"
     initial_state:
@@ -49,9 +49,9 @@ files:
       offset: 673
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: IOException e
-  - offset: 806
+  - offset: 807
     length: 71
     placeholder_text: "/* TODO \nReturn a Databse object initialized with the contents\
       \ read. */"
@@ -60,7 +60,7 @@ files:
       offset: 806
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: ' new Database(contents'
   text: "import java.io.*;\n\npublic class Task {\n    public static void main(String[]\
     \ ar) {\n        Task t = new Task();\n        Database d = t.readCSV(\"./resources/iris-data.csv\"\
@@ -111,7 +111,7 @@ files:
       offset: 587
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
               String[] lines = contents.split("\n");
               this.colNames = lines[0].split(",");
@@ -121,7 +121,7 @@ files:
               }
               this.numRows = lines.length - 1;
   - offset: 778
-    length: 104
+    length: 106
     placeholder_text: |-
       /* TODO */
       This method should return the data contained on row "row" and the column matching  @columname
@@ -129,8 +129,8 @@ files:
       length: 104
       offset: 778
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2-
               int col = 0;
               for(col=0;col<this.colNames.length && !(this.colNames[col].equals(columnName));col++);
@@ -152,5 +152,8 @@ files:
 - name: test/iris-data.csv
   visible: true
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 07 Mar 2022 20:59:05 UTC
 record: -1

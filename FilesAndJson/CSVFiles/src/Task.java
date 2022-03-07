@@ -9,7 +9,7 @@ public class Task {
     }
 
     public Database readCSV(String filename) {
-        String contents = "";
+        String contents = ""; 
         try (InputStream in = new BufferedInputStream(new FileInputStream(filename))){
             byte[] buffer = new byte[1024];
             int lengthRead;

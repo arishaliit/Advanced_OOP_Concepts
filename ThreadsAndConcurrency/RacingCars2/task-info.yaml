@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 109
-    length: 57
+    length: 31
     placeholder_text: |-
       /* TODO
       Declare a static ExecutorService named service */
@@ -13,30 +13,30 @@ files:
       offset: 109
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: static ExecutorService service;
-  - offset: 315
-    length: 36
+  - offset: 289
+    length: 55
     placeholder_text: "/* TODO \nCreate a Runnable with c1*/"
     initial_state:
       length: 36
       offset: 315
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: new Racer(c1);
-  - offset: 378
-    length: 36
+  - offset: 345
+    length: 0
     placeholder_text: "/* TODO \nCreate a Runnable with c2*/"
     initial_state:
       length: 36
       offset: 378
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: new Racer(c2)
-  - offset: 457
-    length: 104
+  - offset: 386
+    length: 83
     placeholder_text: |-
       /* TODO
       Submit both runnables to the ExecutorService and then request the ExecutorService to shutdown */
@@ -44,14 +44,14 @@ files:
       length: 104
       offset: 457
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       service.submit(racer1);
               service.submit(racer2);
               service.shutdown();
-  - offset: 569
-    length: 136
+  - offset: 477
+    length: 96
     placeholder_text: |-
       /* TODO
       Implement the initExecutorService method. This has to initialize service to a new FixedThreadPool with a minimum of 3 threads */
@@ -60,7 +60,7 @@ files:
       offset: 569
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
           public static void initExecutorService(){
               service = Executors.newFixedThreadPool(3);
@@ -102,14 +102,14 @@ files:
   visible: true
   placeholders:
   - offset: 19
-    length: 57
+    length: 639
     placeholder_text: "/* TODO \nThis class is exactly as the Racer from Task 1*/"
     initial_state:
       length: 57
       offset: 19
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       implements Runnable{
           Car c;
@@ -140,7 +140,7 @@ files:
 - name: src/Car.java
   visible: true
   placeholders:
-  - offset: 126
+  - offset: 857
     length: 66
     placeholder_text: "/* TODO \nExact same methods and constructor as the Car in\
       \ task 1*/"
@@ -149,7 +149,7 @@ files:
       offset: 126
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2
          public Car(String name,double miles){
               this.miles = miles;
@@ -174,5 +174,8 @@ files:
     \    public String name;\n    public double maxMiles;\n\n /* TODO \nExact same\
     \ methods and constructor as the Car in task 1*/\n}\n"
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 20 Mar 2022 22:12:19 UTC
 record: -1

@@ -252,7 +252,7 @@ files:
     status: Solved
     encrypted_possible_answer: (JsonObject) Jsoner.deserialize(result, new JsonObject());
   - offset: 1436
-    length: 473
+    length: 472
     placeholder_text: "/* TODO \nThis should return a String with each show in four\
       \ fields:\nName:the name of the show\nLink:the link to the show\nrating average:The\
       \ rating average of teh show, and \nsummary, the summary of the show.*/"
@@ -272,7 +272,7 @@ files:
                   results += "Rating average:"+(BigDecimal)((JsonObject)obj.get("rating")).get("average")+"\n";
                   results += "Summary:"+(String)obj.get("summary")+"\n";
               }
-  - offset: 2006
+  - offset: 2005
     length: 188
     placeholder_text: "/* TODO\nGiven a String with some text in it, write that text\
       \ to a file. \nThe name of the file is given in outfile */"

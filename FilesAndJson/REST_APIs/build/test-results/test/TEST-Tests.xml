@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Tests" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-03-07T21:13:17" hostname="DESKTOP-AH9F0OG" time="1.667">
+<testsuite name="Tests" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-03-12T04:12:11" hostname="DESKTOP-AH9F0OG" time="1.633">
   <properties/>
-  <testcase name="testJSONStructure" classname="Tests" time="0.569"/>
-  <testcase name="testWriteDoc" classname="Tests" time="0.293"/>
-  <testcase name="testRetrieval" classname="Tests" time="0.273"/>
-  <testcase name="testReturningJsonDocs" classname="Tests" time="0.266"/>
-  <testcase name="testContent" classname="Tests" time="0.26"/>
+  <testcase name="testJSONStructure" classname="Tests" time="0.559"/>
+  <testcase name="testWriteDoc" classname="Tests" time="0.28"/>
+  <testcase name="testRetrieval" classname="Tests" time="0.264"/>
+  <testcase name="testReturningJsonDocs" classname="Tests" time="0.259"/>
+  <testcase name="testContent" classname="Tests" time="0.269"/>
   <system-out><![CDATA[{birthday=1961-11-04, country={code=US, timezone=America/New_York, name=United States}, image={original=https://static.tvmaze.com/uploads/images/original_untouched/31/79799.jpg, medium=https://static.tvmaze.com/uploads/images/medium_portrait/31/79799.jpg}, gender=Male, _links={self={href=https://api.tvmaze.com/people/69979}}, name=Ralph Macchio, id=69979, deathday=null, updated=1641360075, url=https://www.tvmaze.com/people/69979/ralph-macchio}
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

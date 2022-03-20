@@ -28,11 +28,6 @@ Link:https://www.tvmaze.com/shows/22350/todd-sampsons-body-hack
 Premiered:2016-10-04
 Rating average:null
 Summary:<p>Filmed around the world over a period of six months, Todd will take on some of the biggest challenges of his life as he embarks on an epic exploration, investigating some of the world's most extraordinary people. He deconstructs and decodes how these incredible people live, what they do differently from the rest of us and how this impacts the human body.</p>
-Name:Unspun World with John Simpson
-Link:https://www.tvmaze.com/shows/60659/unspun-world-with-john-simpson
-Premiered:2022-02-23
-Rating average:null
-Summary:<p>Unspun World provides an unvarnished version of the week's major global news stories - reliable, honest and essential viewing with the BBC's world affairs editor John Simpson.</p>
 Name:Gene Simmons: Family Jewels
 Link:https://www.tvmaze.com/shows/8623/gene-simmons-family-jewels
 Premiered:2006-08-07
@@ -48,3 +43,8 @@ Link:https://www.tvmaze.com/shows/23863/running-russell-simmons
 Premiered:2010-11-02
 Rating average:null
 Summary:<p>A reality series following hip-hop and fashion mogul Russell Simmons and his band of assistants as they help to manage his business deals, family life, and party planning.</p>
+Name:Any Given Wednesday with Bill Simmons
+Link:https://www.tvmaze.com/shows/17119/any-given-wednesday-with-bill-simmons
+Premiered:2016-06-22
+Rating average:null
+Summary:<p><b>Any Given Wednesday with Bill Simmons</b> is a weekly talk show hosted by one of the most influential figures in contemporary sports media.</p><p>Spanning pop culture and touching on everything from sports and entertainment to arts and technology, Any Given Wednesday with Bill Simmons will feature intimate conversations with compelling guests each week. The show will also include field segments and Simmons' signature commentary on current events.</p>

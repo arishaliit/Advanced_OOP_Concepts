@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 989
-    length: 135
+    length: 134
     placeholder_text: '/* TODO: create a JSON object with the contents of  "filename".
       You can use the method below to help you read the file. */'
     initial_state:
@@ -16,7 +16,7 @@ files:
     encrypted_possible_answer: |-
       lename) {
               JsonObject obj = (JsonObject) Jsoner.deserialize(readFile(filename), new JsonObject());
-  - offset: 1213
+  - offset: 1212
     length: 0
     placeholder_text: /* Complete this using the parameter passed to this method.
       */
@@ -42,7 +42,7 @@ files:
               } catch(IOException e) {
                   e.printStackTrace();
                   Syst
-  - offset: 1213
+  - offset: 1212
     length: 0
     placeholder_text: /* Put in code to read the file line by line. */
     initial_state:
@@ -53,7 +53,7 @@ files:
     status: Solved
     encrypted_possible_answer: /* Complete this using the parameter passed to this
       method. */
-  - offset: 1213
+  - offset: 1212
     length: 0
     placeholder_text: /* Put in the variable that should be returned. */
     initial_state:
@@ -165,7 +165,7 @@ files:
     status: Solved
     encrypted_possible_answer: public JsonObject data;
   - offset: 230
-    length: 18
+    length: 17
     placeholder_text: "/* TODO \nset the memebr variable declared above.*/"
     initial_state:
       length: 50
@@ -174,7 +174,7 @@ files:
     selected: true
     status: Solved
     encrypted_possible_answer: this.data = data;
-  - offset: 314
+  - offset: 313
     length: 303
     placeholder_text: "/* TODO \nComplete this method as specified. */"
     initial_state:
@@ -193,7 +193,7 @@ files:
                   return null;
               else
                   return result;
-  - offset: 679
+  - offset: 678
     length: 408
     placeholder_text: "/* TODO \nComplete this method as specified.\n The previous\
       \ method may be of help. \n*/"

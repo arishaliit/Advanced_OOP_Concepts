@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Tests" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-03-07T21:13:10" hostname="DESKTOP-AH9F0OG" time="0.091">
+<testsuite name="Tests" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-03-12T04:12:06" hostname="DESKTOP-AH9F0OG" time="0.096">
   <properties/>
-  <testcase name="testJsonDoc" classname="Tests" time="0.047"/>
+  <testcase name="testJsonDoc" classname="Tests" time="0.052"/>
   <testcase name="testJSONStructureInDB" classname="Tests" time="0.022"/>
-  <testcase name="testReadingFile" classname="Tests" time="0.005"/>
+  <testcase name="testReadingFile" classname="Tests" time="0.006"/>
   <testcase name="testOtherJSONViaDB" classname="Tests" time="0.009"/>
   <testcase name="testComputingReviews" classname="Tests" time="0.007"/>
   <system-out><![CDATA[]]></system-out>

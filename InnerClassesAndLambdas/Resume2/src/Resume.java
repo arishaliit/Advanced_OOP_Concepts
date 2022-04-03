@@ -1,30 +1,69 @@
-/* TODO */
-The imports will self populate. You don't have to do anything.
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
 
 public class Resume {
-/* TODO */
-Copy the two inner classes of Resume exactly as they were in Task 2. Copy->paste.
-/* TODO */
-Create a member variable of type Person (exactly as in task 2)
-/* TODO */
-Create a List to hold values of type Education (exactly as in task 2)
-/* TODO */
-Create a Priority Queue that holds values of type Experience.
-    public Resume(Person p){
-/* TODO */
-Assign a value to the Person variable.
-/* TODO */
-Initialize the List with Education objects.
-/* TODO */
-Initialize the priority queue with a comparator defined in an anonymous inner class. Check the specs for the comparator.
+    public class Education{
+        String school;
+        String major;
+        public String getSchool(){return school;}
+        public String getMajor(){return major;}
+        public Education(String school, String major){
+            this.school=school;
+            this.major=major;
+        }
+        public String toString(){
+            return major+" at "+school;
+        }
     }
 
-/* TODO */
-Add a standard getter for the experiences. getExperience. it should return a priority queue.
+    public static class Experience{
+        int fromYear;
+        int toYear;
+        String title;
+        public Experience(String title, int from, int to){
+            this.title = title;
+            this.fromYear = from;
+            this.toYear = to;
+        }
+        public String toString(){
+            return fromYear+" - "+toYear+":"+title;
+        }
+    }
 
-/* TODO */
-Implement the addEducation, addExperience and override the toString() methods exactly as you did in task 2 (Copy->Paste)
+    private Person p;
+    private List<Education> ed;
+    private PriorityQueue<Experience> ex;
+    public Resume(Person p){
+        this.p = p;
+        ed = new ArrayList<>();
+        ex = new PriorityQueue<>(new Comparator<Experience>() {
+            @Override
+            public int compare(Experience experience, Experience t1) {
+                return t1.toYear - experience.toYear;
+            }
+        });
+    }
 
+    public PriorityQueue getExperience(){return ex;}
 
+    public void addEducation(Education e){
+        ed.add(e);
+    }
 
+    public void addExperience(Experience e){
+        ex.add(e);
+    }
+
+    public String toString(){
+        String s = p.toString();
+        s+="\nExperience";
+        for(Experience e : ex)
+            s+="\n"+e;
+        s+="\nEducation";
+        for(Education e: ed)
+            s+="\n"+e;
+        return s;
+    }
 }

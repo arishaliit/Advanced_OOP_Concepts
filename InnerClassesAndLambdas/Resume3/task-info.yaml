@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 64
-    length: 87
+    length: 516
     placeholder_text: |-
       /* TODO */
       This code is exactly the same as in Task 3 and should yield the same output.
@@ -13,7 +13,7 @@ files:
       offset: 64
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
               Person p = new Person("Kim Possible","2000-01-01");
               p.setPosition("Associate", 34000);
@@ -102,7 +102,7 @@ files:
   visible: true
   placeholders:
   - offset: 0
-    length: 50
+    length: 1040
     placeholder_text: |-
       /* TODO */
       Copy the Person class from Task 3 here.
@@ -110,8 +110,8 @@ files:
       length: 50
       offset: 0
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |
       import java.time.LocalDate;
       import java.time.Period;
@@ -169,7 +169,7 @@ files:
   visible: true
   placeholders:
   - offset: 106
-    length: 68
+    length: 1100
     placeholder_text: |-
       /* TODO */
       Same two inner classes and member variables as in task 3.
@@ -178,7 +178,7 @@ files:
       offset: 106
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
           public class Education{
               String school;
@@ -211,7 +211,7 @@ files:
           private Person p;
           private List<Education> ed;
           private PriorityQueue<Experience> ex;
-  - offset: 204
+  - offset: 1236
     length: 74
     placeholder_text: |-
       /* TODO */
@@ -221,11 +221,11 @@ files:
       offset: 204
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
               this.p = p;
               ed = new ArrayList<>();
-  - offset: 280
+  - offset: 1312
     length: 97
     placeholder_text: |-
       /* TODO */
@@ -235,9 +235,9 @@ files:
       offset: 280
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: '       ex = new PriorityQueue<>((e1,e2)->e2.fromYear-e1.fromYear);'
-  - offset: 384
+  - offset: 1416
     length: 133
     placeholder_text: |-
       /* TODO */
@@ -247,7 +247,7 @@ files:
       offset: 384
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
           public PriorityQueue getExperience(){return ex;}
 
@@ -290,5 +290,8 @@ files:
 
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 03 Apr 2022 16:50:47 UTC
 record: -1

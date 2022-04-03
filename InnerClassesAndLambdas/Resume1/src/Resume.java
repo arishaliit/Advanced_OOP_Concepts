@@ -2,22 +2,60 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Resume {
-/* TODO */
-Create a public member inner class Education according to the specifications.
 
-/* TODO */
-Create a public static inner class called Experience, according to the specifications.
-
-/* TODO */
-Create the Person and List of Education and List of experience objects. They should be private.
-    public Resume(Person p){
-/* TODO */
-This constructor should initialize the person and do all necessary initializations for the other methods to work.
+    public class Education{
+        String school;
+        String major;
+        public String getSchool(){return school;}
+        public String getMajor(){return major;}
+        public Education(String school, String major){
+            this.school=school;
+            this.major=major;
+        }
+        public String toString(){
+            return major+" at "+school;
+        }
     }
 
-/* TODO */
-Create the addEducation, addExperience and override the toString methods as specified.
+    public static class Experience{
+        int fromYear;
+        int toYear;
+        String title;
+        public Experience(String title, int from, int to){
+            this.title = title;
+            this.fromYear = from;
+            this.toYear = to;
+        }
+        public String toString(){
+            return fromYear+" - "+toYear+":"+title;
+        }
+    }
 
+    private Person p;
+    private List<Education> ed;
+    private List<Experience> ex;
+    public Resume(Person p){
+        this.p = p;
+        ed = new ArrayList<>();
+        ex = new ArrayList<>();
+    }
 
+    public void addEducation(Education e){
+        ed.add(e);
+    }
 
+    public void addExperience(Experience e){
+        ex.add(e);
+    }
+
+    public String toString(){
+        String s = p.toString();
+        s+="\nExperience";
+        for(Experience e : ex)
+            s+="\n"+e;
+        s+="\nEducation";
+        for(Education e: ed)
+            s+="\n"+e;
+        return s;
+    }
 }

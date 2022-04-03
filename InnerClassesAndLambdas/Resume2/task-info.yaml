@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 64
-    length: 176
+    length: 515
     placeholder_text: |-
       /* TODO */
       Copy the Task from task 2 here and add experiences where the end years are not in order. Watch it print the resume with the dates in order from most recent to least.
@@ -13,7 +13,7 @@ files:
       offset: 64
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
               Person p = new Person("Kim Possible","2000-01-01");
               p.setPosition("Associate", 34000);
@@ -101,7 +101,7 @@ files:
 - name: src/Person.java
   visible: true
   placeholders:
-  - offset: 0
+  - offset: 979
     length: 62
     placeholder_text: |-
       /* TODO */
@@ -110,8 +110,8 @@ files:
       length: 62
       offset: 0
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |
       import java.time.LocalDate;
       import java.time.Period;
@@ -169,7 +169,7 @@ files:
   visible: true
   placeholders:
   - offset: 0
-    length: 73
+    length: 111
     placeholder_text: |-
       /* TODO */
       The imports will self populate. You don't have to do anything.
@@ -178,14 +178,14 @@ files:
       offset: 0
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       import java.util.ArrayList;
       import java.util.Comparator;
       import java.util.List;
       import java.util.PriorityQueue;
-  - offset: 97
-    length: 92
+  - offset: 135
+    length: 527
     placeholder_text: |-
       /* TODO */
       Copy the two inner classes of Resume exactly as they were in Task 2. Copy->paste.
@@ -194,7 +194,7 @@ files:
       offset: 97
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2
           public class Education{
               String school;
@@ -223,7 +223,7 @@ files:
                   return fromYear+" - "+toYear+":"+title;
               }
           }
-  - offset: 190
+  - offset: 663
     length: 73
     placeholder_text: |-
       /* TODO */
@@ -233,9 +233,9 @@ files:
       offset: 190
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: '    private Person p;'
-  - offset: 264
+  - offset: 737
     length: 80
     placeholder_text: |-
       /* TODO */
@@ -245,10 +245,10 @@ files:
       offset: 264
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: '    private List<Education> ed;'
-  - offset: 345
-    length: 72
+  - offset: 818
+    length: 424
     placeholder_text: |-
       /* TODO */
       Create a Priority Queue that holds values of type Experience.
@@ -257,9 +257,9 @@ files:
       offset: 345
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: '    private PriorityQueue<Experience> ex;'
-  - offset: 447
+  - offset: 1272
     length: 49
     placeholder_text: |-
       /* TODO */
@@ -268,10 +268,10 @@ files:
       length: 49
       offset: 447
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: '        this.p = p;'
-  - offset: 497
+  - offset: 1322
     length: 54
     placeholder_text: |-
       /* TODO */
@@ -281,9 +281,9 @@ files:
       offset: 497
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: '        ed = new ArrayList<>();'
-  - offset: 552
+  - offset: 1377
     length: 131
     placeholder_text: |-
       /* TODO */
@@ -293,7 +293,7 @@ files:
       offset: 552
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
               ex = new PriorityQueue<>(new Comparator<Experience>() {
                   @Override
@@ -301,7 +301,7 @@ files:
                       return t1.toYear - experience.toYear;
                   }
               });
-  - offset: 691
+  - offset: 1516
     length: 103
     placeholder_text: |-
       /* TODO */
@@ -311,9 +311,9 @@ files:
       offset: 691
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: '    public PriorityQueue getExperience(){return ex;}'
-  - offset: 796
+  - offset: 1621
     length: 131
     placeholder_text: |-
       /* TODO */
@@ -323,7 +323,7 @@ files:
       offset: 796
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
           public void addEducation(Education e){
               ed.add(e);
@@ -375,5 +375,8 @@ files:
 
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 03 Apr 2022 16:48:08 UTC
 record: -1

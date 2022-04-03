@@ -4,7 +4,7 @@ files:
   visible: true
   placeholders:
   - offset: 209
-    length: 80
+    length: 0
     placeholder_text: |-
       /* TODO */
       Create an education object. Schoo is NEIU, major is Computer Science.
@@ -13,10 +13,10 @@ files:
       offset: 209
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: Resume.Education ed = r.new Education("NEIU", "Computer
       Science");
-  - offset: 297
+  - offset: 215
     length: 54
     placeholder_text: |-
       /* TODO */
@@ -26,9 +26,9 @@ files:
       offset: 297
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: ' r.addEducation(ed);'
-  - offset: 360
+  - offset: 278
     length: 67
     placeholder_text: |-
       /* TODO */
@@ -38,11 +38,11 @@ files:
       offset: 360
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       Resume.Experience ex = new Resume.Experience("Barista", 2017,2018);
               r.addExperience(ex);
-  - offset: 452
+  - offset: 370
     length: 83
     placeholder_text: |-
       /* TODO */
@@ -52,9 +52,9 @@ files:
       offset: 452
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: new Resume.Experience("Cashier",2018,2019)
-  - offset: 562
+  - offset: 480
     length: 66
     placeholder_text: |-
       /* TODO */
@@ -63,8 +63,8 @@ files:
       length: 66
       offset: 562
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: new Resume.Experience("Associate",2019,2021)
   text: |-
     public class Task {
@@ -158,7 +158,7 @@ files:
   visible: true
   placeholders:
   - offset: 0
-    length: 66
+    length: 1040
     placeholder_text: |-
       /*TODO*/
       Create a Person class exactly as in Task 1. (Copy/Paste).
@@ -166,8 +166,8 @@ files:
       length: 66
       offset: 0
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       import java.time.LocalDate;
       import java.time.Period;
@@ -224,8 +224,8 @@ files:
 - name: src/Resume.java
   visible: true
   placeholders:
-  - offset: 74
-    length: 88
+  - offset: 75
+    length: 387
     placeholder_text: |-
       /* TODO */
       Create a public member inner class Education according to the specifications.
@@ -234,7 +234,7 @@ files:
       offset: 74
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
           public class Education{
               String school;
@@ -249,8 +249,8 @@ files:
                   return major+" at "+school;
               }
           }
-  - offset: 164
-    length: 97
+  - offset: 464
+    length: 366
     placeholder_text: |-
       /* TODO */
       Create a public static inner class called Experience, according to the specifications.
@@ -259,7 +259,7 @@ files:
       offset: 164
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
           public static class Experience{
               int fromYear;
@@ -274,8 +274,8 @@ files:
                   return fromYear+" - "+toYear+":"+title;
               }
           }
-  - offset: 263
-    length: 106
+  - offset: 832
+    length: 330
     placeholder_text: |-
       /* TODO */
       Create the Person and List of Education and List of experience objects. They should be private.
@@ -284,12 +284,12 @@ files:
       offset: 263
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
           private Person p;
           private List<Education> ed;
           private List<Experience> ex;
-  - offset: 399
+  - offset: 1192
     length: 124
     placeholder_text: |-
       /* TODO */
@@ -299,12 +299,12 @@ files:
       offset: 399
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
               this.p = p;
               ed = new ArrayList<>();
               ex = new ArrayList<>();
-  - offset: 531
+  - offset: 1324
     length: 97
     placeholder_text: |-
       /* TODO */
@@ -313,8 +313,8 @@ files:
       length: 97
       offset: 531
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2-
           public void addEducation(Education e){
               ed.add(e);
@@ -359,5 +359,8 @@ files:
 
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 03 Apr 2022 16:43:37 UTC
 record: -1

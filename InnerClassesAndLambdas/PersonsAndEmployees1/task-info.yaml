@@ -68,7 +68,7 @@ files:
   visible: true
   placeholders:
   - offset: 0
-    length: 97
+    length: 80
     placeholder_text: |-
       /* TODO */
       Import the java.time.LocalDate and java.time.Period classes.
@@ -78,11 +78,11 @@ files:
       offset: 0
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       import java.time.LocalDate;
       import java.time.Period;
-  - offset: 99
+  - offset: 82
     length: 28
     placeholder_text: |-
       /* TODO */
@@ -92,9 +92,9 @@ files:
       offset: 99
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: public class Person {
-  - offset: 132
+  - offset: 115
     length: 134
     placeholder_text: |-
       /* TODO */
@@ -104,11 +104,11 @@ files:
       offset: 132
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       private String name;
           private LocalDate birthDate;
-  - offset: 272
+  - offset: 255
     length: 166
     placeholder_text: |-
       /* TODO */
@@ -120,7 +120,7 @@ files:
       offset: 272
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       private class Position{
               String name;
@@ -135,7 +135,7 @@ files:
                   return name+":"+salary;
               }
           }
-  - offset: 444
+  - offset: 427
     length: 65
     placeholder_text: |-
       /* TODO */
@@ -145,9 +145,9 @@ files:
       offset: 444
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: private Position position;
-  - offset: 516
+  - offset: 499
     length: 174
     placeholder_text: |-
       /* TODO */
@@ -157,7 +157,7 @@ files:
       offset: 516
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       /**
            * Creates a Person with a name and a birthdate.
@@ -168,7 +168,7 @@ files:
               this.name = name;
               this.birthDate = LocalDate.parse(birthDate);
           }
-  - offset: 696
+  - offset: 679
     length: 118
     placeholder_text: |-
       /* TODO */
@@ -178,12 +178,12 @@ files:
       offset: 696
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |
       public int getAge(){
               return -1*Period.between(LocalDate.now(),this.birthDate).getYears();
           }
-  - offset: 819
+  - offset: 802
     length: 125
     placeholder_text: |-
       /* TODO */
@@ -193,12 +193,12 @@ files:
       offset: 819
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       public void setPosition(String name, double salary){
               this.position = new Position(name,salary);
           }
-  - offset: 950
+  - offset: 933
     length: 33
     placeholder_text: |-
       /* TODO */
@@ -208,12 +208,12 @@ files:
       offset: 950
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       public Position getPosition(){
               return this.position;
           }
-  - offset: 989
+  - offset: 972
     length: 113
     placeholder_text: |-
       /* TODO */
@@ -222,13 +222,13 @@ files:
       length: 113
       offset: 989
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       public String toString(){
               return name+" - "+getAge()+":"+this.position;
           }
-  - offset: 1103
+  - offset: 1086
     length: 53
     placeholder_text: |-
       /* TODO */
@@ -238,7 +238,7 @@ files:
       offset: 1103
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: '}'
   text: |
     /* TODO */
@@ -275,5 +275,8 @@ files:
     /* TODO */
     Finish closing curly braces and the class.
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 03 Apr 2022 16:01:35 UTC
 record: -1
